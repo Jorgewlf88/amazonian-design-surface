@@ -25,7 +25,7 @@ And the full format on product pages, credits and licence sheets:
 
 ```text
 "Kené Geometry" (amazonia-pe-hero-kene-geometry-v01) by Ana Ruiz.
-From amazonian-design-surface — https://github.com/OWNER/amazonian-design-surface
+From amazonian-design-surface — https://github.com/Jorgewlf88/amazonian-design-surface
 Licensed under CC BY-SA 4.0 — https://creativecommons.org/licenses/by-sa/4.0/
 Changes: recoloured to a two-colour palette.
 ```

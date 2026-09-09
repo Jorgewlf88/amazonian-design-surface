@@ -22,7 +22,7 @@ const fromRoot = (...segments) => join(REPO_ROOT, ...segments);
 const COLLECTION_DIR = 'src/collection';
 const OUTPUT = 'dist/catalog.json';
 const REPOSITORY_NAME = 'amazonian-design-surface';
-const REPOSITORY_URL = 'https://github.com/OWNER/amazonian-design-surface';
+const REPOSITORY_URL = 'https://github.com/Jorgewlf88/amazonian-design-surface';
 
 const TIER_BY_FOLDER = {
   'hero-patterns': 'hero',

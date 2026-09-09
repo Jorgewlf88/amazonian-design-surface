@@ -20,4 +20,4 @@ All notable changes to this archive are documented here. The format follows
 - `author.display_name`, `author.url` and `author.collective` in the asset schema, so artists are
   credited under the name they sign with.
 
-[Unreleased]: https://github.com/OWNER/amazonian-design-surface/commits/main
+[Unreleased]: https://github.com/Jorgewlf88/amazonian-design-surface/commits/main
