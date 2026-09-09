@@ -1,6 +1,6 @@
 # Support
 
-| I want to… | Go here |
+| I want to | Go here |
 | --- | --- |
 | Understand the production specs | [`docs/production-specs.md`](../docs/production-specs.md) |
 | Name my files correctly | [`docs/nomenclature.md`](../docs/nomenclature.md) |

@@ -2,12 +2,12 @@
 
 # `amazonian-design-surface`
 
-**An open, cross-border library of original illustrations, vectors and seamless repeating patterns inspired by the Amazon basin — built for textile and surface printing.**
+**An open, cross-border library of original illustrations, vectors and seamless repeating patterns inspired by the Amazon rainforest, built for textile and surface printing.**
 
 [![License: GPL v3](https://img.shields.io/badge/code-GPL--3.0-blue.svg)](LICENSE)
 [![Artwork: CC BY-SA 4.0](https://img.shields.io/badge/artwork-CC%20BY--SA%204.0-lightgrey.svg)](LICENSE-ASSETS.md)
 [![Contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](CONTRIBUTING.md)
-[![i18n: en · es · pt](https://img.shields.io/badge/i18n-en%20%C2%B7%20es%20%C2%B7%20pt-orange.svg)](web/locales/)
+[![i18n: en, es, pt](https://img.shields.io/badge/i18n-en%2C%20es%2C%20pt-orange.svg)](web/locales/)
 
 </div>
 
@@ -15,10 +15,10 @@
 
 ## Manifesto
 
-The Amazon is not a border. It is a single living system that nine countries happen to share, and its
-visual language — the geometry of Shipibo *kené*, the fauna of the *várzea*, the seed beadwork of the
-Napo, the palm silhouettes that repeat from Leticia to Manaus — has been catalogued far less carefully
-than its biology.
+The Amazon rainforest is not a border. It is a single living system that nine countries happen to
+share, and its visual language (the geometry of Shipibo *kené*, the fauna of the *várzea*, the seed
+beadwork of the Napo, the palm silhouettes that repeat from Leticia to Manaus) has been catalogued far
+less carefully than its biology.
 
 **`amazonian-design-surface` exists to change that.** It is a public, versioned, technically rigorous
 archive of **original** surface designs: hero graphics, supporting motifs and structural textures, all
@@ -33,10 +33,10 @@ We hold three commitments:
    is not finished. This repository ships files a mill can print, not moodboards.
 3. **The whole basin, in its own languages.** Ecuador, Peru, Brazil, Colombia, Bolivia, Venezuela,
    Guyana, Suriname and French Guiana. Documentation and the project website are internationalised
-   from day one — English, Spanish and Portuguese are first-class, not translations of an afterthought.
+   from day one: English, Spanish and Portuguese are first-class, not translations of an afterthought.
 
 If you draw, if you translate, if you know the difference between a *rapport* that tiles and one that
-merely looks like it does — there is work here for you. See [CONTRIBUTING.md](CONTRIBUTING.md).
+merely looks like it does, there is work here for you. See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ---
 
@@ -69,7 +69,7 @@ amazonian-design-surface/
 │   ├── cultural-attribution.md         # Origin declaration & custodianship policy
 │   └── adr/                            # Architecture Decision Records (site & tooling)
 │
-├── src/                            # Editable sources — the working truth
+├── src/                            # Editable sources: the working truth
 │   ├── assets/                         # Raw design files, isolated by technical format
 │   │   ├── vector/
 │   │   │   ├── ai/                     # Adobe Illustrator working files
@@ -81,8 +81,8 @@ amazonian-design-surface/
 │   │   └── palettes/                   # .ase / .aco shared colour libraries
 │   │
 │   └── collection/                 # The catalog, by textile surface hierarchy
-│       ├── hero-patterns/              # Complex focal graphics — the statement print
-│       ├── secondary-patterns/         # Supporting motifs — coordinate scale, same story
+│       ├── hero-patterns/              # Complex focal graphics: the statement print
+│       ├── secondary-patterns/         # Supporting motifs: coordinate scale, same story
 │       └── blender-patterns/           # Structural textures, geometric fillers, circular fills
 │
 ├── dist/                           # Production-ready, seamless outputs (generated)
@@ -101,34 +101,34 @@ amazonian-design-surface/
 │   ├── public/                         # Copied verbatim: app.js, images, icons, fonts
 │   ├── src/
 │   │   ├── styles/main.css             # Tailwind entry point + component layer
-│   │   └── data/                       # i18n.config.js · asset.schema.json
+│   │   └── data/                       # i18n.config.js, asset.schema.json
 │   ├── locales/                    # Internationalisation resources
-│   │   ├── en/                         # ui.json · collection.json · pages/*.md
+│   │   ├── en/                         # ui.json, collection.json, pages/*.md
 │   │   ├── es/
 │   │   └── pt/
-│   └── dist/                           # Build output — generated, git-ignored
+│   └── dist/                           # Build output: generated, git-ignored
 │
 ├── scripts/                        # Maintainer tooling
 │   ├── validate-naming.mjs             # Nomenclature + mandatory meta.json
 │   ├── validate-locales.mjs            # Locale key parity and placeholder integrity
 │   ├── check-terminology.sh            # Rejects garment-construction vocabulary
-│   ├── build-catalog.mjs               # meta.json → dist/catalog.json + credit lines
-│   ├── build-authors.mjs               # meta.json → AUTHORS.md
-│   ├── build-site.mjs                  # Static generator — 5 routes × 3 locales
+│   ├── build-catalog.mjs               # meta.json to dist/catalog.json plus credit lines
+│   ├── build-authors.mjs               # meta.json to AUTHORS.md
+│   ├── build-site.mjs                  # Static generator: 5 routes across 3 locales
 │   └── serve.mjs                       # Preview server, node:http only
 │
 ├── package.json                    # Build pipeline + validators (2 dependencies)
 ├── .editorconfig
 ├── .gitattributes                  # Git LFS tracking for binary design files
 ├── .gitignore
-├── AUTHORS.md                      # Generated credit roster — every artist, every design
+├── AUTHORS.md                      # Generated credit roster: every artist, every design
 ├── CHANGELOG.md
 ├── CODE_OF_CONDUCT.md
 ├── CONTRIBUTING.md
 ├── GOVERNANCE.md
 ├── MAINTAINERS.md
-├── LICENSE                         # GPL-3.0 — website source & tooling
-├── LICENSE-ASSETS.md               # CC BY-SA 4.0 — artwork & pattern files
+├── LICENSE                         # GPL-3.0: website source & tooling
+├── LICENSE-ASSETS.md               # CC BY-SA 4.0: artwork & pattern files
 └── README.md
 ```
 
@@ -143,12 +143,12 @@ These are **normative**. A pull request that misses them is not merged. Full det
 
 | Requirement | Value |
 | --- | --- |
-| Master delivery space | **CMYK — Coated FOGRA39 (ISO 12647-2:2004)** |
+| Master delivery space | **CMYK: Coated FOGRA39 (ISO 12647-2:2004)** |
 | Working / authoring space | sRGB IEC61966-2.1 or Adobe RGB (1998), converted on export |
 | Rendering intent | Relative Colorimetric, black point compensation ON |
-| Embedded profile | **Mandatory** on every `dist/` file — no untagged output |
-| Total ink limit | ≤ 300 % TAC for reactive/pigment digital textile printing |
-| Rich black | `C60 M40 Y40 K100` — never a four-plate 100 % build |
+| Embedded profile | **Mandatory** on every `dist/` file: no untagged output |
+| Total ink limit | 300 % TAC maximum for reactive/pigment digital textile printing |
+| Rich black | `C60 M40 Y40 K100`: never a four-plate 100 % build |
 | Spot / limited-palette designs | Ship an accompanying `.ase` in `src/assets/palettes/` |
 
 > **Why FOGRA39.** It is the most widely supported coated CMYK characterisation across European and
@@ -161,9 +161,9 @@ These are **normative**. A pull request that misses them is not merged. Full det
 | Requirement | Value |
 | --- | --- |
 | Minimum export resolution | **300 DPI at final print size** |
-| Preferred repeat tile size | 2000 × 2000 px minimum (≈ 16.9 × 16.9 cm @ 300 DPI) |
-| Master raster format | `.tiff` — LZW compression, **no layers, no alpha**, flattened |
-| Secondary raster format | `.png` — 8-bit, RGB, alpha permitted for motif cut-outs |
+| Preferred repeat tile size | 2000x2000 px minimum (about 16.9x16.9 cm at 300 DPI) |
+| Master raster format | `.tiff`: LZW compression, **no layers, no alpha**, flattened |
+| Secondary raster format | `.png`: 8-bit, RGB, alpha permitted for motif cut-outs |
 | Vector format | `.svg` (open master) plus `.ai` or `.eps` for print workflows |
 | Bit depth | 8-bit minimum; 16-bit accepted for gradient-heavy hero designs |
 | Upscaling | **Prohibited.** Never interpolate a small file up to 300 DPI |
@@ -177,9 +177,9 @@ Mandatory rules:
    must state the offset percentage explicitly.
 2. **Edge continuity.** Any element crossing the tile boundary must be duplicated at the exact opposite
    edge with **pixel-identical** offset (raster) or **numerically identical** coordinates (vector).
-   Offset must be a whole-pixel value — no sub-pixel drift.
+   Offset must be a whole-pixel value: no sub-pixel drift.
 3. **No artwork on the artboard edge itself.** Bleed elements past the boundary, then wrap; do not clip.
-4. **Verification is on the contributor.** Prove the tile with a 3 × 3 array render and include that
+4. **Verification is on the contributor.** Prove the tile with a 3x3 array render and include that
    proof image as `*-repeat-proof.png` in the pull request.
 5. **No stray transparency or off-white halos** on the seam. Flatten to an opaque background before
    TIFF export.
@@ -188,7 +188,7 @@ Mandatory rules:
 
 ### Colour separation for blenders
 
-`blender-patterns` intended for limited-colour production should stay within **≤ 6 flat colours** and
+`blender-patterns` intended for limited-colour production should stay within **6 flat colours maximum** and
 be delivered as vector wherever the motif allows, so a mill can recolour without re-drawing.
 
 ---
@@ -197,21 +197,21 @@ be delivered as vector wherever the motif allows, so a mill can recolour without
 
 A live showcase is published from this repository to **GitHub Pages**, built from [`web/`](web/).
 
-- **Fully internationalised (i18n)** — the interface ships in **English, Spanish and Portuguese**, with
+- **Fully internationalised (i18n)**: the interface ships in **English, Spanish and Portuguese**, with
   an always-visible **language toggle** in the site header. The chosen locale is persisted per visitor
   and reflected in the URL (`/en/`, `/es/`, `/pt/`), so every page is directly shareable in-language.
-- **Localised asset indexing** — pattern titles, motif descriptions, cultural origin notes and
+- **Localised asset indexing**: pattern titles, motif descriptions, cultural origin notes and
   collection tiers are indexed per language, so searching for *guacamayo*, *macaw* or *arara* reaches
   the same asset from any locale.
-- **Faceted browsing** — filter by tier (hero / secondary / blender), by country of origin, by motif
+- **Faceted browsing**: filter by tier (hero / secondary / blender), by country of origin, by motif
   family (flora, fauna, geometric, ritual-geometry) and by dominant colour.
-- **Every card links back to the repository** — source file, licence, author and the exact `dist/`
+- **Every card links back to the repository**: source file, licence, author and the exact `dist/`
   deliverable, so the site is a front door to the archive rather than a copy of it.
-- **Built without a framework** — a generator we own plus two dependencies
+- **Built without a framework**: a generator we own plus two dependencies
   (`@tailwindcss/cli`, `marked`), so an archive meant to last decades is not tied to a toolchain that
   majors every year. See [ADR 0002](docs/adr/0002-own-the-generator-instead-of-a-framework.md).
 
-Translation resources live in [`web/locales/`](web/locales/) and are open to contribution — see the
+Translation resources live in [`web/locales/`](web/locales/) and are open to contribution: see the
 [Web localization contribution path](CONTRIBUTING.md#web-localization-contribution-path).
 
 ---
@@ -231,8 +231,8 @@ amazonia-[country_origin]-[tier]-[motif_name]-[v]
 | `amazonia` | Fixed namespace prefix. Always present, always lowercase. | `amazonia` |
 | `country_origin` | ISO 3166-1 alpha-2, lowercase. Use `pan` when the motif is basin-wide and cannot be attributed to a single country. | `ec` `pe` `br` `co` `bo` `ve` `gy` `sr` `gf` `pan` |
 | `tier` | Position in the surface hierarchy. | `hero` `sec` `blnd` |
-| `motif_name` | 1–3 words, `lower-case-with-hyphens`, in the language of origin where a local name exists, ASCII-folded (no accents, no `ñ` → use `n`). | e.g. `kene-geometry`, `guacamayo`, `vitoria-regia` |
-| `v` | Zero-padded two-digit version, prefixed `v`. Increment on any visual change; never overwrite a published version. | `v01` `v02` … |
+| `motif_name` | 1-3 words, `lower-case-with-hyphens`, in the language of origin where a local name exists, ASCII-folded (no accents, no `ñ` (write `n` instead)). | e.g. `kene-geometry`, `guacamayo`, `vitoria-regia` |
+| `v` | Zero-padded two-digit version, prefixed `v`. Increment on any visual change; never overwrite a published version. | `v01`, `v02`, and so on |
 
 **Separator:** single hyphen `-` between segments. **Never** use spaces, underscores, uppercase,
 accents or `#`, `&`, `(`, `)`.
@@ -253,7 +253,7 @@ Append **after** the version, before the extension:
 
 | Suffix | Meaning |
 | --- | --- |
-| `-repeat-proof` | 3 × 3 tiled verification render (required in every submission PR) |
+| `-repeat-proof` | 3x3 tiled verification render (required in every submission PR) |
 | `-flat` | Flattened preview of a layered source |
 | `-mono` | Single-colour separation variant |
 | `-cw` | Colourway variant, numbered: `-cw02` |
@@ -273,13 +273,13 @@ src/collection/hero-patterns/amazonia-pe-hero-kene-geometry/
 
 ---
 
-## Terminology — read before contributing
+## Terminology: read before contributing
 
 This repository uses the word **pattern** in exactly two senses:
 
-1. **Surface pattern** — a repeating visual composition applied to a printed surface (*Surface Pattern
+1. **Surface pattern**: a repeating visual composition applied to a printed surface (*Surface Pattern
    Design*). This is what the `src/collection/` catalog contains.
-2. **Design pattern** — an established solution in software architecture, used only in `web/` and
+2. **Design pattern**: an established solution in software architecture, used only in `web/` and
    `docs/adr/` when discussing the website's code.
 
 This project contains **no garment manufacturing templates, no apparel cutting files and no tailoring
@@ -297,7 +297,7 @@ git lfs install
 git clone https://github.com/<org>/amazonian-design-surface.git
 cd amazonian-design-surface
 
-# 2. Run the showcase site locally — two dependencies, no framework
+# 2. Run the showcase site locally: two dependencies, no framework
 npm install
 npm run dev            # http://localhost:4321/amazonian-design-surface/
 
@@ -314,7 +314,7 @@ The validators run from any directory and are the same checks CI enforces.
 | Scope | Licence |
 | --- | --- |
 | Website source, scripts and tooling | [GPL-3.0](LICENSE) |
-| Artwork, patterns and `dist/` deliverables | [CC BY-SA 4.0](LICENSE-ASSETS.md) — attribution + share-alike |
+| Artwork, patterns and `dist/` deliverables | [CC BY-SA 4.0](LICENSE-ASSETS.md): attribution + share-alike |
 
 Commercial printing of the artwork is permitted under share-alike; selling the *files themselves* as a
 standalone asset pack is not in the spirit of the archive and is explicitly discouraged.
@@ -322,24 +322,24 @@ standalone asset pack is not in the spirit of the archive and is explicitly disc
 ### Crediting the artists
 
 Every design is the work of a **named person who keeps their copyright** and grants a licence. Naming
-them is a condition of that licence — crediting `amazonian-design-surface` alone does **not** satisfy
+them is a condition of that licence: crediting `amazonian-design-surface` alone does **not** satisfy
 it. Use one of the required formats:
 
 ```text
-# Short — care labels, selvedge, packaging
-"Kené Geometry" © Ana Ruiz · amazonian-design-surface · CC BY-SA 4.0
+# Short: care labels, selvedge, packaging
+"Kené Geometry" © Ana Ruiz, amazonian-design-surface, CC BY-SA 4.0
 
-# Full — product pages, credits, licence sheets
+# Full: product pages, credits, licence sheets
 "Kené Geometry" (amazonia-pe-hero-kene-geometry-v01) by Ana Ruiz.
-From amazonian-design-surface — https://github.com/Jorgewlf88/amazonian-design-surface
-Licensed under CC BY-SA 4.0 — https://creativecommons.org/licenses/by-sa/4.0/
+From amazonian-design-surface: https://github.com/Jorgewlf88/amazonian-design-surface
+Licensed under CC BY-SA 4.0: https://creativecommons.org/licenses/by-sa/4.0/
 Changes: recoloured to a two-colour palette.
 ```
 
 Every asset card on the showcase site carries a **Copy attribution** button, and `dist/catalog.json`
-ships the ready-made credit lines, so no downstream user has to compose their own. The complete rules —
-including what does *not* count as attribution — are in
-[LICENSE-ASSETS.md → How to credit](LICENSE-ASSETS.md#how-to-credit--required-attribution-format).
+ships the ready-made credit lines, so no downstream user has to compose their own. The complete rules,
+including what does *not* count as attribution, are in
+[LICENSE-ASSETS.md, "How to credit"](LICENSE-ASSETS.md#how-to-credit-required-attribution-format).
 
 Contributors are credited in their asset's `meta.json`, in [AUTHORS.md](AUTHORS.md), on the website
 card in all three languages, and in [CHANGELOG.md](CHANGELOG.md).
@@ -348,7 +348,7 @@ card in all three languages, and in [CHANGELOG.md](CHANGELOG.md).
 
 ## Community
 
-- [Contributing guide](CONTRIBUTING.md) · [Code of Conduct](CODE_OF_CONDUCT.md) · [Governance](GOVERNANCE.md)
-- [Artists in this archive](AUTHORS.md) — every contributor, every design they authored
+- [Contributing guide](CONTRIBUTING.md), [Code of Conduct](CODE_OF_CONDUCT.md), [Governance](GOVERNANCE.md)
+- [Artists in this archive](AUTHORS.md): every contributor, every design they authored
 - [Cultural attribution policy](docs/cultural-attribution.md)
 - Open a [pattern submission issue](.github/ISSUE_TEMPLATE/pattern-submission.yml) before starting a large hero design.

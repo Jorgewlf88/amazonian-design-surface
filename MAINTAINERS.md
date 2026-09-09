@@ -12,7 +12,7 @@ Replace the placeholders below before publishing the repository.
 
 | Name | GitHub | Country | Scope |
 | --- | --- | --- | --- |
-| _TBD_ | `@handle` | — | Repeat integrity, colour management |
+| _TBD_ | `@handle` | n/a | Repeat integrity, colour management |
 
 ## Locale maintainers
 

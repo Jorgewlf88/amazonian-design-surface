@@ -4,17 +4,17 @@
 # Authors
 
 Every surface design in this archive is the work of a named artist who **retains their copyright**
-and licenses the work under [CC BY-SA 4.0](LICENSE-ASSETS.md). Anyone using these designs — including
-commercially — must credit the individual artist listed here, not this repository alone.
+and licenses the work under [CC BY-SA 4.0](LICENSE-ASSETS.md). Anyone using these designs, including
+commercially, must credit the individual artist listed here, not this repository alone.
 
-See [LICENSE-ASSETS.md → How to credit](LICENSE-ASSETS.md#how-to-credit--required-attribution-format)
+See [LICENSE-ASSETS.md, "How to credit"](LICENSE-ASSETS.md#how-to-credit-required-attribution-format)
 for the required attribution formats.
 
-**0 artist(s) · 0 design(s).**
+**0 artist(s), 0 design(s).**
 
 _No artwork has been contributed yet. The first merged design will appear here automatically._
 
-To be listed, see [CONTRIBUTING.md → Artistic contribution path](CONTRIBUTING.md#artistic-contribution-path).
+To be listed, see [CONTRIBUTING.md, "Artistic contribution path"](CONTRIBUTING.md#artistic-contribution-path).
 
 ## Translators and maintainers
 

@@ -10,7 +10,7 @@ This repository publishes a static website and design assets. Security reports a
 
 ## Reporting a vulnerability
 
-Please use **GitHub Security Advisories** (Security → Report a vulnerability) rather than a public
+Please use **GitHub Security Advisories** (Security > Report a vulnerability) rather than a public
 issue. Expect an acknowledgement within 7 days.
 
 ## Not a security issue

@@ -3,7 +3,7 @@
  * Credits builder.
  *
  * Walks src/collection/, groups every design by its declared artist, and writes AUTHORS.md.
- * Attribution is a licence condition, not a courtesy — this file is generated so that the
+ * Attribution is a licence condition, not a courtesy: this file is generated so that the
  * credit roster can never drift from the metadata that governs it.
  *
  * Run from the repository root:  node scripts/build-authors.mjs
@@ -45,8 +45,8 @@ for (const [folder, tier] of Object.entries(TIER_BY_FOLDER)) {
     const name = author.display_name;
 
     if (!name) {
-      console.error(`✖ ${COLLECTION_DIR}/${folder}/${design}: meta.json has no author.display_name.`);
-      console.error('  Attribution is mandatory. See LICENSE-ASSETS.md → "How to credit".');
+      console.error(`ERROR: ${COLLECTION_DIR}/${folder}/${design}: meta.json has no author.display_name.`);
+      console.error('  Attribution is mandatory. See LICENSE-ASSETS.md, "How to credit".');
       process.exit(1);
     }
 
@@ -79,13 +79,13 @@ const lines = [
   '# Authors',
   '',
   'Every surface design in this archive is the work of a named artist who **retains their copyright**',
-  'and licenses the work under [CC BY-SA 4.0](LICENSE-ASSETS.md). Anyone using these designs — including',
-  'commercially — must credit the individual artist listed here, not this repository alone.',
+  'and licenses the work under [CC BY-SA 4.0](LICENSE-ASSETS.md). Anyone using these designs, including',
+  'commercially, must credit the individual artist listed here, not this repository alone.',
   '',
-  'See [LICENSE-ASSETS.md → How to credit](LICENSE-ASSETS.md#how-to-credit--required-attribution-format)',
+  'See [LICENSE-ASSETS.md, "How to credit"](LICENSE-ASSETS.md#how-to-credit-required-attribution-format)',
   'for the required attribution formats.',
   '',
-  `**${sorted.length} artist(s) · ${assetCount} design(s).**`,
+  `**${sorted.length} artist(s), ${assetCount} design(s).**`,
   '',
 ];
 
@@ -93,17 +93,18 @@ if (sorted.length === 0) {
   lines.push(
     '_No artwork has been contributed yet. The first merged design will appear here automatically._',
     '',
-    'To be listed, see [CONTRIBUTING.md → Artistic contribution path](CONTRIBUTING.md#artistic-contribution-path).',
+    'To be listed, see [CONTRIBUTING.md, "Artistic contribution path"](CONTRIBUTING.md#artistic-contribution-path).',
     '',
   );
 } else {
   for (const [name, artist] of sorted) {
-    const handle = artist.github ? ` — [${artist.github}](https://github.com/${artist.github.slice(1)})` : '';
-    const site = artist.url ? ` · [portfolio](${artist.url})` : '';
-    lines.push(`## ${name}${handle}${site}`, '');
+    const handle = artist.github ? `[${artist.github}](https://github.com/${artist.github.slice(1)})` : '';
+    const site = artist.url ? `[portfolio](${artist.url})` : '';
+    const links = [handle, site].filter(Boolean).join(', ');
+    lines.push(`## ${name}${links ? ` (${links})` : ''}`, '');
     if (artist.collective) lines.push(`In collaboration with **${artist.collective}**.`, '');
     for (const asset of artist.assets.sort((a, b) => a.id.localeCompare(b.id))) {
-      lines.push(`- **${asset.title}** — \`${asset.id}-${asset.version}\` (${asset.tier})`);
+      lines.push(`- **${asset.title}**: \`${asset.id}-${asset.version}\` (${asset.tier})`);
     }
     lines.push('');
   }
@@ -118,4 +119,4 @@ lines.push(
 );
 
 writeFileSync(fromRoot(OUTPUT), `${lines.join('\n')}`);
-console.log(`✔ Wrote ${OUTPUT} — ${sorted.length} artist(s), ${assetCount} design(s).`);
+console.log(`Wrote ${OUTPUT}: ${sorted.length} artist(s), ${assetCount} design(s).`);

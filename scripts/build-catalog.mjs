@@ -2,7 +2,7 @@
 /**
  * Catalog builder.
  *
- * Walks src/collection/, reads every design's meta.json, and emits dist/catalog.json —
+ * Walks src/collection/, reads every design's meta.json, and emits dist/catalog.json,
  * the machine-readable index the showcase site consumes to render localized asset cards.
  *
  * Adapter design pattern: repository metadata in, site view model out. Nothing in web/
@@ -43,7 +43,7 @@ for (const [folder, tierCode] of Object.entries(TIER_BY_FOLDER)) {
 
     const metaPath = join(designPath, 'meta.json');
     if (!existsSync(metaPath)) {
-      warnings.push(`${COLLECTION_DIR}/${folder}/${design}: missing meta.json — skipped`);
+      warnings.push(`${COLLECTION_DIR}/${folder}/${design}: missing meta.json, skipped`);
       continue;
     }
 
@@ -53,8 +53,8 @@ for (const [folder, tierCode] of Object.entries(TIER_BY_FOLDER)) {
     const artist = meta.author?.display_name;
 
     if (!artist) {
-      console.error(`✖ ${COLLECTION_DIR}/${folder}/${design}: meta.json has no author.display_name.`);
-      console.error('  Attribution is mandatory. See LICENSE-ASSETS.md → "How to credit".');
+      console.error(`ERROR: ${COLLECTION_DIR}/${folder}/${design}: meta.json has no author.display_name.`);
+      console.error('  Attribution is mandatory. See LICENSE-ASSETS.md, "How to credit".');
       process.exit(1);
     }
 
@@ -69,14 +69,14 @@ for (const [folder, tierCode] of Object.entries(TIER_BY_FOLDER)) {
       color: meta.color,
       author: meta.author,
       // Ready-to-copy credit lines, so a downstream user never has to compose their own.
-      // Formats are defined in LICENSE-ASSETS.md → "How to credit".
+      // Formats are defined in LICENSE-ASSETS.md, "How to credit".
       attribution: {
-        short: `"${meta.title?.en ?? meta.id}" © ${artist} · ${REPOSITORY_NAME} · CC BY-SA 4.0`,
+        short: `"${meta.title?.en ?? meta.id}" © ${artist}, ${REPOSITORY_NAME}, CC BY-SA 4.0`,
         inline: `Surface design "${meta.title?.en ?? meta.id}" by ${artist} (${REPOSITORY_NAME}), CC BY-SA 4.0.`,
         full: [
           `"${meta.title?.en ?? meta.id}" (${meta.id}-${version}) by ${artist}.`,
-          `From ${REPOSITORY_NAME} — ${REPOSITORY_URL}`,
-          'Licensed under CC BY-SA 4.0 — https://creativecommons.org/licenses/by-sa/4.0/',
+          `From ${REPOSITORY_NAME}: ${REPOSITORY_URL}`,
+          'Licensed under CC BY-SA 4.0: https://creativecommons.org/licenses/by-sa/4.0/',
         ].join('\n'),
       },
       custodian_consent: meta.origin?.custodian_consent ?? 'not-applicable',
@@ -100,4 +100,4 @@ writeFileSync(
 );
 
 warnings.forEach((warning) => console.warn(`  ! ${warning}`));
-console.log(`✔ Wrote ${OUTPUT} with ${assets.length} asset(s).`);
+console.log(`Wrote ${OUTPUT} with ${assets.length} asset(s).`);

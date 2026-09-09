@@ -1,4 +1,4 @@
-name: 🌎 Localization request
+name: Localization request
 description: Add a new language, or fix an existing translation on the showcase site.
 title: "[i18n]: "
 labels: ["i18n", "needs-triage"]
@@ -16,14 +16,14 @@ body:
     id: locale-tag
     attributes:
       label: BCP 47 language tag
-      placeholder: "pt · es · qu · shp"
+      placeholder: "pt, es, qu, shp"
     validations:
       required: true
   - type: input
     id: endonym
     attributes:
       label: Endonym (the language's own name, as shown in the toggle)
-      placeholder: "Português · Runasimi"
+      placeholder: "Português, Runasimi"
     validations:
       required: true
   - type: textarea

@@ -7,9 +7,9 @@
  * generator is ~400 lines we own rather than a dependency tree we track.
  *
  * Design patterns applied:
- *   - Adapter  — catalog records are adapted into a locale-resolved view model.
- *   - Template — one layout, one renderer per page kind.
- *   - Strategy — locale resolution order is declared in web/src/data/i18n.config.js.
+ *   - Adapter:  catalog records are adapted into a locale-resolved view model.
+ *   - Template: one layout, one renderer per page kind.
+ *   - Strategy: locale resolution order is declared in web/src/data/i18n.config.js.
  *
  * Run from the repository root:  node scripts/build-site.mjs
  */
@@ -59,7 +59,7 @@ const translate = (dict, path, vars = {}) => {
   return String(value).replace(/\{(\w+)\}/g, (_, key) => vars[key] ?? `{${key}}`);
 };
 
-/** Minimal front matter reader — avoids a YAML dependency for three known fields. */
+/** Minimal front matter reader: avoids a YAML dependency for three known fields. */
 const parseFrontMatter = (raw) => {
   const match = raw.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n?/);
   if (!match) return { data: {}, body: raw };
@@ -234,7 +234,7 @@ const renderCard = ({ ui, collection, asset, locale }) => {
   const title = asset.title?.[locale] ?? asset.title?.en ?? asset.id;
   const description = asset.description?.[locale] ?? asset.description?.en ?? '';
   const artist = asset.author?.display_name ?? '';
-  const [width, height] = asset.repeat?.size_cm ?? ['—', '—'];
+  const [width, height] = asset.repeat?.size_cm ?? ['n/a', 'n/a'];
   const custodianship =
     asset.custodian_consent === 'pending'
       ? `<p class="badge badge-warn">${escape(translate(ui, 'asset_card.custodianship_pending'))}</p>`
@@ -251,7 +251,7 @@ const renderCard = ({ ui, collection, asset, locale }) => {
           <img src="${url(previewPath(asset))}" alt="${escape(title)}" loading="lazy" width="600" height="600">
         </div>
         <div class="card-body">
-          <p class="card-tier">${escape(translate(collection, `tiers.${asset.tier}.label`))} · ${escape(
+          <p class="card-tier">${escape(translate(collection, `tiers.${asset.tier}.label`))}, ${escape(
             translate(collection, `countries.${asset.country}`),
           )}</p>
           <h3 class="card-title">${escape(title)}</h3>
@@ -366,7 +366,7 @@ for (const locale of locales) {
       const raw = readFileSync(fromRoot(LOCALES_DIR, locale, 'pages', route.page), 'utf8');
       const { data, body: markdown } = parseFrontMatter(raw);
       body = renderContent({ html: marked.parse(markdown) });
-      title = `${data.title ?? route.key} — ${translate(ui, 'site.name')}`;
+      title = `${data.title ?? route.key} | ${translate(ui, 'site.name')}`;
       description = meta[route.key]?.description ?? translate(ui, 'site.tagline');
     }
 
@@ -384,7 +384,7 @@ const redirect = `<!doctype html>
     <link rel="canonical" href="${url(defaultLocale)}">
     <meta http-equiv="refresh" content="0; url=${url(defaultLocale)}">
     <script>
-      // Strategy: stored preference -> Accept-Language -> default. See i18n.config.js.
+      // Strategy: stored preference, then Accept-Language, then default. See i18n.config.js.
       (function () {
         var supported = ${JSON.stringify(locales)};
         var stored = null;
@@ -424,4 +424,4 @@ if (existsSync(fromRoot(PUBLIC_DIR))) {
 
 writeFileSync(fromRoot(OUT_DIR, '.nojekyll'), '');
 
-console.log(`✔ Built ${pageCount} pages across ${locales.length} locales (${assets.length} asset(s)) into ${OUT_DIR}/.`);
+console.log(`Built ${pageCount} pages across ${locales.length} locales (${assets.length} asset(s)) into ${OUT_DIR}/.`);

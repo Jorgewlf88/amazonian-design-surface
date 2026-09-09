@@ -1,8 +1,8 @@
 blank_issues_enabled: false
 contact_links:
-  - name: 💬 Community discussion
+  - name: Community discussion
     url: https://github.com/Jorgewlf88/amazonian-design-surface/discussions
     about: Ask about motifs, custodianship, colour management or the showcase site.
-  - name: 📖 Contribution guide
+  - name: Contribution guide
     url: https://github.com/Jorgewlf88/amazonian-design-surface/blob/main/CONTRIBUTING.md
     about: Read the artistic and localization governance before opening an issue.

@@ -5,7 +5,7 @@ governance contract for two kinds of contribution: **artwork** and **website loc
 equally valued and both are reviewed against the same standard of rigour.
 
 Before anything else, read the [Code of Conduct](CODE_OF_CONDUCT.md) and the
-[Terminology](README.md#terminology--read-before-contributing) section of the README.
+[Terminology](README.md#terminology-read-before-contributing) section of the README.
 
 ---
 
@@ -29,10 +29,10 @@ Before anything else, read the [Code of Conduct](CODE_OF_CONDUCT.md) and the
 
 Use **"pattern"** only for:
 
-- **Surface pattern design** — the repeating visual compositions this archive catalogs.
-- **Software design patterns** — architectural solutions in the `web/` codebase and `docs/adr/`.
+- **Surface pattern design**: the repeating visual compositions this archive catalogs.
+- **Software design patterns**: architectural solutions in the `web/` codebase and `docs/adr/`.
 
-**Prohibited terms** anywhere in this project — commit messages, branch names, file names, metadata,
+**Prohibited terms** anywhere in this project: commit messages, branch names, file names, metadata,
 issue titles, pull request descriptions, documentation and website copy:
 
 > ❌ `sewing pattern` ❌ `apparel pattern` ❌ `patternmaking` ❌ `pattern block` ❌ `cutting file`
@@ -59,18 +59,18 @@ molds**. Pull requests using these terms will be asked to rename before review c
    - Fonts, brushes or texture packs whose licence forbids redistribution inside an open repository.
 
 3. **Strict prohibition of unregulated commercial AI-generated art.** Artwork produced by
-   general-purpose commercial generative image models — trained on scraped, unlicensed corpora — is
+   general-purpose commercial generative image models, trained on scraped, unlicensed corpora, is
    **not accepted**, in whole or in part, including as an underlayer that was later traced or painted
    over. This is a provenance rule, not an aesthetic one: the archive cannot make an attribution
    guarantee for output whose training data cannot be audited.
 
    *Narrow, disclosed exceptions:* deterministic procedural or algorithmic generation you authored
    (scripts, parametric tiling, noise fields), and machine-assisted **cleanup** of your own hand-drawn
-   work — vectorisation, denoise, upscaling of your own scan. Both must be disclosed in `meta.json`
+   work: vectorisation, denoise, upscaling of your own scan. Both must be disclosed in `meta.json`
    under `"tooling"`. Undisclosed use is treated as misrepresentation of authorship.
 
 4. **Declare your sources of inspiration.** Field sketches, your own reference photos, public-domain
-   botanical plates and ethnographic literature are all legitimate — cite them.
+   botanical plates and ethnographic literature are all legitimate: cite them.
 
 5. **No sacred or restricted imagery without consent.** See
    [Cultural custodianship](#cultural-custodianship).
@@ -104,7 +104,7 @@ amazonia-[country_origin]-[tier]-[motif_name]-[v]
     "inspiration_notes": "Drawn from field study of textile kené line structure, 2025."
   },
   "author": {
-    "display_name": "Ana Ruiz",              // The name you sign with — a pseudonym is fine
+    "display_name": "Ana Ruiz",              // The name you sign with, a pseudonym is fine
     "github": "@handle",
     "country": "ec",
     "url": "https://example.com/ana-ruiz"    // Optional portfolio link, shown on your asset card
@@ -125,7 +125,7 @@ in `inspiration_notes`. **Do not guess a country to fill the field.**
 Amazonian visual traditions belong to living peoples. Where a motif derives from an identifiable
 Indigenous or local tradition:
 
-- Name the tradition in `cultural_reference` — never flatten it to "tribal" or "ethnic".
+- Name the tradition in `cultural_reference`: never flatten it to "tribal" or "ethnic".
 - Set `custodian_consent` honestly. `documented` requires a link or note in the PR describing the
   permission or collaboration. `pending` is acceptable for community-in-progress work and will be
   labelled as such on the website.
@@ -142,10 +142,10 @@ items; a human maintainer checks the rest.
 - [ ] Design placed in the correct tier: `hero-patterns`, `secondary-patterns` or `blender-patterns`.
 - [ ] Editable source committed to `src/assets/` in its correct format folder (`vector/ai`, `vector/eps`,
       `vector/svg`, `raster/psd`, `raster/procreate`).
-- [ ] Repeat is genuinely seamless — whole-pixel edge continuity, no sub-pixel drift, no seam halo.
-- [ ] `*-repeat-proof.png` included, showing a 3 × 3 tiled render.
-- [ ] `dist/` export at **300 DPI minimum** at final print size — never upscaled.
-- [ ] TIFF master is **CMYK, Coated FOGRA39, embedded profile, flattened, LZW**, ≤ 300 % TAC.
+- [ ] Repeat is genuinely seamless: whole-pixel edge continuity, no sub-pixel drift, no seam halo.
+- [ ] `*-repeat-proof.png` included, showing a 3x3 tiled render.
+- [ ] `dist/` export at **300 DPI minimum** at final print size: never upscaled.
+- [ ] TIFF master is **CMYK, Coated FOGRA39, embedded profile, flattened, LZW**, 300 % TAC maximum.
 - [ ] `meta.json` complete, including the regional origin declaration and `tooling`.
 - [ ] Binary files tracked through **Git LFS** (`git lfs track` is preconfigured in `.gitattributes`).
 - [ ] No prohibited terminology anywhere in the diff.
@@ -157,7 +157,7 @@ items; a human maintainer checks the rest.
 2. Fork, then branch: `surface/amazonia-ec-hero-guacamayo`.
 3. Commit sources, `dist/` exports, `meta.json` and the repeat proof together.
 4. Open the pull request using the template and tick the checklist.
-5. Expect review on **repeat integrity, colour compliance, provenance and origin declaration** — in
+5. Expect review on **repeat integrity, colour compliance, provenance and origin declaration**: in
    that order. Two maintainer approvals are required for `hero` tier, one for `secondary` and `blender`.
 
 ---
@@ -165,13 +165,13 @@ items; a human maintainer checks the rest.
 ## Web localization contribution path
 
 The showcase site is internationalised from the ground up. Translation is a first-class contribution
-and does not require design or build tooling — you can do it entirely in the GitHub web editor.
+and does not require design or build tooling: you can do it entirely in the GitHub web editor.
 
 ### Where the files live
 
 ```text
 web/locales/
-├── en/                     # Source of truth — English
+├── en/                     # Source of truth: English
 │   ├── ui.json             # Interface strings: navigation, buttons, filters, toggle labels
 │   ├── collection.json     # Tier names, motif families, country names, colour terms
 │   ├── meta.json           # SEO titles, descriptions, Open Graph copy per route
@@ -179,8 +179,8 @@ web/locales/
 │       ├── about.md        # Long-form localized content blocks
 │       ├── manifesto.md
 │       └── how-to-use.md
-├── es/                     # Español — same structure, same keys
-└── pt/                     # Português — same structure, same keys
+├── es/                     # Español: same structure, same keys
+└── pt/                     # Português: same structure, same keys
 ```
 
 **Rule:** `en/` is the source of truth. Every other locale must mirror its **key structure exactly**.
@@ -189,9 +189,9 @@ The `validate-locales` workflow fails the build on any missing, extra or misnest
 ### Updating an existing language
 
 1. Fork the repository and branch: `i18n/es-filter-labels`.
-2. Edit the relevant file under `web/locales/<lang>/`. Change **values only** — never key names.
+2. Edit the relevant file under `web/locales/<lang>/`. Change **values only**: never key names.
 3. Keep interpolation placeholders and their names intact:
-   `"results_count": "{count} patterns found"` → `"{count} patrones encontrados"`.
+   `"results_count": "{count} patterns found"` becomes `"{count} patrones encontrados"`.
 4. Preserve Markdown structure in `pages/*.md`: same heading levels, same link targets, same front
    matter keys. Translate link *text*, not link *URLs*.
 5. Run `npm run validate:locales` from `web/` and confirm it passes.
@@ -204,7 +204,7 @@ locales.
 
 1. Open a `localization-request` issue naming the language, its
    [BCP 47](https://www.rfc-editor.org/info/bcp47) tag and whether you can maintain it long-term.
-2. Copy the entire `web/locales/en/` directory to `web/locales/<tag>/` — for example
+2. Copy the entire `web/locales/en/` directory to `web/locales/<tag>/`, for example
    `web/locales/qu/` for Quechua. Keep every key; translate every value.
 3. Register the locale in the site configuration:
 
@@ -216,11 +216,11 @@ locales.
      en: 'English',
      es: 'Español',
      pt: 'Português',
-     qu: 'Runasimi',        // Always the endonym — the language's own name
+     qu: 'Runasimi',        // Always the endonym, the language's own name
    };
    ```
 
-4. Add the language to the header **language toggle** by adding its entry above — the toggle renders
+4. Add the language to the header **language toggle** by adding its entry above: the toggle renders
    from this list, so no component changes are needed.
 5. If the language is right-to-left, set `dir: 'rtl'` in its config entry and note it in the PR so a
    maintainer can verify the layout.
@@ -235,7 +235,7 @@ locales.
 - **Motif names:** keep the original-language motif name (`kené`, `vitória-régia`, `achiote`) and add a
   translated gloss in parentheses where helpful. Never replace an Indigenous term with a generic one.
 - **Prohibited terminology applies to every language.** Do not translate "pattern" into the local
-  garment-construction term — Spanish `patrón de costura`/`molde`, Portuguese `molde de costura`.
+  garment-construction term: Spanish `patrón de costura`/`molde`, Portuguese `molde de costura`.
   Use `patrón de superficie` / `estampado` (es) and `padrão de superfície` / `estampa` (pt).
 - Machine translation as a *starting point* is fine; submitting unreviewed machine output is not.
   Declare it in the PR if you used it.
@@ -248,7 +248,7 @@ locales.
   without JavaScript wherever possible.
 - Follow the established **design patterns** documented in [`docs/adr/`](docs/adr/). New architectural
   decisions require a short ADR in the same pull request.
-- Every user-facing string must go through `web/locales/` — **no hardcoded copy in components.** A PR
+- Every user-facing string must go through `web/locales/`: **no hardcoded copy in components.** A PR
   that introduces an untranslated literal will be asked to extract it.
 - Accessibility is a merge requirement: WCAG 2.1 AA contrast, keyboard-reachable language toggle,
   meaningful `alt` text sourced from the localized catalog.
@@ -258,12 +258,12 @@ locales.
 ## Review, licensing and attribution
 
 - By submitting, you certify you are the author, and you license artwork under **CC BY-SA 4.0** and
-  code under **GPL-3.0**. You are granting a licence — you are **not** transferring ownership.
+  code under **GPL-3.0**. You are granting a licence: you are **not** transferring ownership.
 
 ### How you are credited
 
-**You keep your copyright.** Your name travels with your work, and anyone who uses it — commercially
-included — must name *you*, not this repository alone. That obligation is enforced in four places:
+**You keep your copyright.** Your name travels with your work, and anyone who uses it, commercially
+included, must name *you*, not this repository alone. That obligation is enforced in four places:
 
 | Where | What it does |
 | --- | --- |
@@ -272,14 +272,14 @@ included — must name *you*, not this repository alone. That obligation is enfo
 | Your asset card on the site | Shows your name, your portfolio link and a **Copy attribution** button, in all three languages. |
 | [`CHANGELOG.md`](CHANGELOG.md) | Credits you in the release that introduces your work. |
 
-`display_name` is the name you sign with — **a pseudonym or studio name is as binding as a legal
+`display_name` is the name you sign with: **a pseudonym or studio name is as binding as a legal
 name**, and downstream users must reproduce it verbatim. Add `legal_name` only if you want it on
 record alongside it; it is never substituted for `display_name` in public credits. If you worked with
-a workshop or community, name it in `author.collective` — it is credited *alongside* you, never
+a workshop or community, name it in `author.collective`: it is credited *alongside* you, never
 instead of you.
 
 The attribution formats users must follow are defined in
-[LICENSE-ASSETS.md → How to credit](LICENSE-ASSETS.md#how-to-credit--required-attribution-format).
+[LICENSE-ASSETS.md, "How to credit"](LICENSE-ASSETS.md#how-to-credit-required-attribution-format).
 Crediting `amazonian-design-surface` while omitting the artist does not satisfy the licence.
 - Maintainers may request changes for repeat integrity, colour compliance, naming or provenance.
   Provenance concerns are the only category where a maintainer may close a PR without a revision cycle.

@@ -6,12 +6,12 @@
 | --- | --- | --- |
 | **Contributor** | Submits artwork, translations, code or documentation. | Open a pull request. |
 | **Locale maintainer** | Owns one language under `web/locales/`; reviews i18n pull requests. | Sustained translation contributions; self-nomination in a `localization-request` issue. |
-| **Design council member** | Reviews artwork for repeat integrity, colour compliance and provenance. | Invitation after ≥ 3 merged assets. |
+| **Design council member** | Reviews artwork for repeat integrity, colour compliance and provenance. | Invitation after 3 or more merged assets. |
 | **Core maintainer** | Merge rights, release tagging, Code of Conduct enforcement. | Consensus of existing core maintainers. |
 
 ## Decision-making
 
-- **Routine changes** (a new asset, a translation fix, a bug fix) — lazy consensus. One approval for
+- **Routine changes** (a new asset, a translation fix, a bug fix): lazy consensus. One approval for
   `secondary` and `blender` assets, code and docs; **two** approvals for `hero` assets and for any
   change to the normative standards in `docs/production-specs.md` or `docs/nomenclature.md`.
 - **Architectural changes** to the website require an Architecture Decision Record in
@@ -29,8 +29,8 @@ while a custodianship question is open, without being deleted from history.
 
 The collection is versioned with [Semantic Versioning](https://semver.org) applied to the *catalog*:
 
-- **MAJOR** — a breaking change to the nomenclature standard or production specs.
-- **MINOR** — new assets, new locales.
-- **PATCH** — asset corrections, translation fixes, site fixes.
+- **MAJOR**: a breaking change to the nomenclature standard or production specs.
+- **MINOR**: new assets, new locales.
+- **PATCH**: asset corrections, translation fixes, site fixes.
 
 Each release updates [CHANGELOG.md](CHANGELOG.md) and credits every contributor by name.

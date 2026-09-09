@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-/* Scan the generated output — the site is built before the stylesheet is compiled. */
+/* Scan the generated output: the site is built before the stylesheet is compiled. */
 @source "../../dist/**/*.html";
 
 /* ---------------------------------------------------------------------------

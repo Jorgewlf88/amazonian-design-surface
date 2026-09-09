@@ -5,15 +5,15 @@
  *   1. Copy `web/locales/en/` to `web/locales/<tag>/` and translate every value.
  *   2. Add the tag to `locales` and its endonym to `localeLabels` below.
  *
- * The header language toggle renders from this registry — no component changes required.
- * See CONTRIBUTING.md → "Web localization contribution path".
+ * The header language toggle renders from this registry: no component changes required.
+ * See CONTRIBUTING.md, "Web localization contribution path".
  */
 
 export const defaultLocale = 'en';
 
 export const locales = ['en', 'es', 'pt'];
 
-/** Always the endonym — the language's own name for itself. */
+/** Always the endonym: the language's own name for itself. */
 export const localeLabels = {
   en: 'English',
   es: 'Español',

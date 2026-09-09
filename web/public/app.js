@@ -1,6 +1,6 @@
 /**
  * Progressive enhancement only. Every page is fully readable and navigable
- * with this file blocked — filtering narrows a list that is already rendered,
+ * with this file blocked: filtering narrows a list that is already rendered,
  * and the language toggle is a set of plain links.
  */
 (function () {
@@ -11,7 +11,7 @@
     var locale = document.documentElement.lang;
     if (locale) localStorage.setItem('ads-locale', locale);
   } catch (e) {
-    /* private mode — the redirect falls back to Accept-Language */
+    /* private mode: the redirect falls back to Accept-Language */
   }
 
   // --- Copy attribution ----------------------------------------------------

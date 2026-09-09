@@ -3,7 +3,7 @@
  * Locale key parity validator.
  *
  * `web/locales/en/` is the source of truth. Every other locale must mirror its key
- * structure exactly — no missing keys, no extra keys, no renamed keys — and must
+ * structure exactly: no missing keys, no extra keys, no renamed keys, and must
  * preserve every {placeholder} used in the English string.
  *
  * Run from the repository root:  node scripts/validate-locales.mjs
@@ -68,7 +68,7 @@ for (const file of jsonFiles(sourceDir)) {
       const actual = placeholders(targetEntries.get(key)).join(',');
       if (expected !== actual) {
         errors.push(
-          `${locale}/${file}: key "${key}" placeholder mismatch — expected {${expected}}, found {${actual}}`,
+          `${locale}/${file}: key "${key}" placeholder mismatch, expected {${expected}}, found {${actual}}`,
         );
       }
     }
@@ -93,10 +93,10 @@ for (const locale of targets) {
 }
 
 if (errors.length > 0) {
-  console.error(`\n✖ ${errors.length} locale issue(s):\n`);
+  console.error(`\nERROR: ${errors.length} locale issue(s):\n`);
   errors.forEach((error) => console.error(`  - ${error}`));
-  console.error('\nSee CONTRIBUTING.md → "Web localization contribution path".\n');
+  console.error('\nSee CONTRIBUTING.md, "Web localization contribution path".\n');
   process.exit(1);
 }
 
-console.log(`✔ Locales ${[SOURCE_LOCALE, ...targets].join(', ')} are in sync.`);
+console.log(`Locales ${[SOURCE_LOCALE, ...targets].join(', ')} are in sync.`);

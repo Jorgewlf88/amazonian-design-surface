@@ -37,7 +37,7 @@ createServer(async (request, response) => {
   try {
     if ((await stat(file)).isDirectory()) file = join(file, 'index.html');
   } catch {
-    // GitHub Pages serves 404.html with a real 404 — mirror that locally.
+    // GitHub Pages serves 404.html with a real 404: mirror that locally.
     file = join(ROOT, '404.html');
     status = 404;
   }
@@ -51,5 +51,5 @@ createServer(async (request, response) => {
     response.end('Not found');
   }
 }).listen(PORT, () => {
-  console.log(`→ http://localhost:${PORT}${BASE}/`);
+  console.log(`Serving http://localhost:${PORT}${BASE}/`);
 });

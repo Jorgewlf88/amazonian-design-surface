@@ -1,4 +1,4 @@
-# ADR 0002 — Own the static generator instead of adopting a framework
+# ADR 0002: Own the static generator instead of adopting a framework
 
 - **Status:** Accepted
 - **Date:** 2026-09-09
@@ -7,8 +7,8 @@
 
 ## Context
 
-ADR 0001 fixed the site's shape — a static build, one route tree per locale, translations as plain
-files — without committing to a build tool. Astro was the assumed default.
+ADR 0001 fixed the site's shape (a static build, one route tree per locale, translations as plain
+files) without committing to a build tool. Astro was the assumed default.
 
 Measured on 2026-09-09, installing the two candidate toolchains:
 
@@ -17,13 +17,13 @@ Measured on 2026-09-09, installing the two candidate toolchains:
 | `astro` 7.3.2 | 203 | 154 MB | 0 vulnerabilities |
 | `@tailwindcss/cli` 4 + `marked` | 33 | 18 MB | 0 vulnerabilities |
 
-Neither is vulnerable today, and neither ships anything to the browser — both produce static HTML, so
+Neither is vulnerable today, and neither ships anything to the browser: both produce static HTML, so
 the runtime exposure to a visitor is identical. The difference is maintenance surface over time:
 dependency alerts a maintainer must triage, and major-version migrations.
 
 That matters unusually much here. **This repository is an archive.** Its TIFF masters are meant to be
 openable in twenty years. Coupling that to a toolchain with a roughly annual major release is a
-mismatch of lifespans, and a community project's alert fatigue is a real security failure mode — 200
+mismatch of lifespans, and a community project's alert fatigue is a real security failure mode: 200
 dependencies of advisories is a queue nobody reads.
 
 The site's actual rendering need is narrow: iterate locales, iterate catalog records, emit cards and
@@ -31,13 +31,13 @@ three long-form pages. That is a loop, not a framework.
 
 ## Decision
 
-Build the site with **a generator we own** — [`scripts/build-site.mjs`](../../scripts/build-site.mjs),
-roughly 400 lines — alongside the two build scripts that already exist for the same repository data.
+Build the site with **a generator we own**, [`scripts/build-site.mjs`](../../scripts/build-site.mjs),
+roughly 400 lines, alongside the two build scripts that already exist for the same repository data.
 
 Two runtime dependencies only:
 
-- **`@tailwindcss/cli`** — styling. Tailwind 4 has Lightning CSS built in, so no PostCSS/autoprefixer chain.
-- **`marked`** — renders the localized `pages/*.md` content blocks. Zero dependencies of its own.
+- **`@tailwindcss/cli`**: styling. Tailwind 4 has Lightning CSS built in, so no PostCSS/autoprefixer chain.
+- **`marked`**: renders the localized `pages/*.md` content blocks. Zero dependencies of its own.
 
 Front matter is parsed by a ten-line reader rather than a YAML dependency. The preview server
 ([`scripts/serve.mjs`](../../scripts/serve.mjs)) uses only `node:http`.
@@ -64,7 +64,7 @@ Front matter is parsed by a ten-line reader rather than a YAML dependency. The p
 
 ## Design patterns applied
 
-- **Adapter** — catalog records are adapted into a locale-resolved view model; nothing in the templates
+- **Adapter**: catalog records are adapted into a locale-resolved view model; nothing in the templates
   reads `src/collection/` directly.
-- **Template method** — one `layout()`, one renderer per page kind.
-- **Strategy** — locale resolution order stays declared in `web/src/data/i18n.config.js`.
+- **Template method**: one `layout()`, one renderer per page kind.
+- **Strategy**: locale resolution order stays declared in `web/src/data/i18n.config.js`.

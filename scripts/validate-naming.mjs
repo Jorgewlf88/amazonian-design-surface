@@ -70,10 +70,10 @@ ROOTS.map((root) => fromRoot(root)).filter(existsSync).forEach(walk);
 checkMetadata();
 
 if (errors.length > 0) {
-  console.error(`\n✖ ${errors.length} naming issue(s):\n`);
+  console.error(`\nERROR: ${errors.length} naming issue(s):\n`);
   errors.forEach((error) => console.error(`  - ${error}`));
   console.error('\nSee docs/nomenclature.md.\n');
   process.exit(1);
 }
 
-console.log('✔ All asset names follow the nomenclature standard.');
+console.log('All asset names follow the nomenclature standard.');

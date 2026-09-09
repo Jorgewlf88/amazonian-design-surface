@@ -1,4 +1,4 @@
-name: 🎨 Surface pattern submission
+name: Surface pattern submission
 description: Propose a new original surface design for the collection.
 title: "[surface]: "
 labels: ["surface-design", "needs-triage"]
@@ -26,9 +26,9 @@ body:
     attributes:
       label: Surface hierarchy tier
       options:
-        - hero — complex focal graphic
-        - secondary — supporting motif
-        - blender — structural texture, geometric filler, circular design
+        - hero: complex focal graphic
+        - secondary: supporting motif
+        - blender: structural texture, geometric filler, circular design
     validations:
       required: true
 
@@ -38,16 +38,16 @@ body:
       label: Country of origin / inspiration
       description: Mandatory regional declaration.
       options:
-        - ec — Ecuador
-        - pe — Peru
-        - br — Brazil
-        - co — Colombia
-        - bo — Bolivia
-        - ve — Venezuela
-        - gy — Guyana
-        - sr — Suriname
-        - gf — French Guiana
-        - pan — Pan-Amazonian (basin-wide, not attributable to one country)
+        - ec: Ecuador
+        - pe: Peru
+        - br: Brazil
+        - co: Colombia
+        - bo: Bolivia
+        - ve: Venezuela
+        - gy: Guyana
+        - sr: Suriname
+        - gf: French Guiana
+        - pan: Pan-Amazonian (basin-wide, not attributable to one country)
     validations:
       required: true
 
@@ -75,9 +75,9 @@ body:
     attributes:
       label: Cultural custodianship status
       options:
-        - not-applicable — no identifiable living tradition referenced
-        - documented — permission or collaboration documented below
-        - pending — community conversation in progress
+        - not-applicable: no identifiable living tradition referenced
+        - documented: permission or collaboration documented below
+        - pending: community conversation in progress
     validations:
       required: true
 
@@ -100,5 +100,5 @@ body:
           required: true
         - label: I can license this artwork under CC BY-SA 4.0.
           required: true
-        - label: I will deliver 300 DPI, CMYK Coated FOGRA39, seamless output with a 3×3 repeat proof.
+        - label: I will deliver 300 DPI, CMYK Coated FOGRA39, seamless output with a 3x3 repeat proof.
           required: true

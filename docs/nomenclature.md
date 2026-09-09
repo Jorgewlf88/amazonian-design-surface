@@ -14,11 +14,11 @@ amazonia-[country_origin]-[tier]-[motif_name]-[v][-suffix].[ext]
 | `amazonia` | Fixed namespace. Always present, always lowercase. Never translated. |
 | `country_origin` | ISO 3166-1 alpha-2, lowercase. `pan` when the motif is basin-wide. |
 | `tier` | `hero` \| `sec` \| `blnd` |
-| `motif_name` | 1–3 words, `lower-case-with-hyphens`, ASCII-folded, in the language of origin where a local name exists. |
+| `motif_name` | 1-3 words, `lower-case-with-hyphens`, ASCII-folded, in the language of origin where a local name exists. |
 | `v` | `v` + zero-padded two digits. Increment on any visual change; never overwrite a published version. |
 
-**Character set:** `a–z`, `0–9`, `-`. Nothing else. No spaces, no underscores, no uppercase, no
-accents (`é` → `e`, `ñ` → `n`), no `#`, `&`, `(`, `)`.
+**Character set:** `a-z`, `0-9`, `-`. Nothing else. No spaces, no underscores, no uppercase, no
+accents (`é` becomes `e`, `ñ` becomes `n`), no `#`, `&`, `(`, `)`.
 
 ## Country codes
 
@@ -30,8 +30,8 @@ accents (`é` → `e`, `ñ` → `n`), no `#`, `&`, `(`, `)`.
 | `co` | Colombia | `gf` | French Guiana |
 | `bo` | Bolivia | `pan` | Pan-Amazonian (basin-wide) |
 
-Use `pan` only when the motif genuinely cannot be attributed to a single country — and explain why in
-`meta.json` → `origin.inspiration_notes`. **Never guess a country to fill the field.**
+Use `pan` only when the motif genuinely cannot be attributed to a single country: and explain why in
+`meta.json`, field `origin.inspiration_notes`. **Never guess a country to fill the field.**
 
 ## Tier codes
 
@@ -47,7 +47,7 @@ Appended **after** the version, before the extension.
 
 | Suffix | Meaning |
 | --- | --- |
-| `-repeat-proof` | 3 × 3 tiled verification render. Required in every submission. |
+| `-repeat-proof` | 3x3 tiled verification render. Required in every submission. |
 | `-flat` | Flattened preview of a layered source. |
 | `-mono` | Single-colour separation variant. |
 | `-cwNN` | Colourway variant, zero-padded: `-cw02`. |

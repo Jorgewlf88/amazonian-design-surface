@@ -19,15 +19,15 @@ Cada ficha tiene un botón **Copiar atribución**. Usa el formato corto en etiqu
 y empaque:
 
 ```text
-"Kené Geometry" © Ana Ruiz · amazonian-design-surface · CC BY-SA 4.0
+"Kené Geometry" © Ana Ruiz, amazonian-design-surface, CC BY-SA 4.0
 ```
 
 Y el formato completo en fichas de producto, créditos y hojas de licencia:
 
 ```text
 "Kené Geometry" (amazonia-pe-hero-kene-geometry-v01) by Ana Ruiz.
-From amazonian-design-surface — https://github.com/Jorgewlf88/amazonian-design-surface
-Licensed under CC BY-SA 4.0 — https://creativecommons.org/licenses/by-sa/4.0/
+From amazonian-design-surface: https://github.com/Jorgewlf88/amazonian-design-surface
+Licensed under CC BY-SA 4.0: https://creativecommons.org/licenses/by-sa/4.0/
 Changes: recoloured to a two-colour palette.
 ```
 

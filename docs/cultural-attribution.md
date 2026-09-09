@@ -18,12 +18,12 @@ Every asset's `meta.json` declares:
 
 ## Consent states
 
-- **`not-applicable`** — the motif derives from flora, fauna or landscape, with no identifiable
+- **`not-applicable`**: the motif derives from flora, fauna or landscape, with no identifiable
   community-held visual language.
-- **`documented`** — the contributor has permission, a collaboration, or a commissioned relationship.
+- **`documented`**: the contributor has permission, a collaboration, or a commissioned relationship.
   The pull request must include a note or link describing it. The website displays a custodianship
   credit on the asset card.
-- **`pending`** — a conversation with the community is in progress. The asset may be merged but is
+- **`pending`**: a conversation with the community is in progress. The asset may be merged but is
   labelled on the site and should not be used commercially until resolved.
 
 ## Restricted imagery
@@ -41,6 +41,6 @@ site index; it does not rewrite repository history. Resolution is documented in
 
 ## Naming motifs
 
-Keep the original-language motif name — `kené`, `vitória-régia`, `achiote`, `chambira`. Add a
+Keep the original-language motif name: `kené`, `vitória-régia`, `achiote`, `chambira`. Add a
 translated gloss in the localized catalog where it helps comprehension. Never replace an Indigenous
 term with a generic English one in the identifier.

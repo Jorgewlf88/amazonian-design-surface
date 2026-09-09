@@ -2,7 +2,7 @@
   "name": "amazonian-design-surface",
   "version": "0.1.0",
   "private": true,
-  "description": "Open, cross-border library of original Amazonian surface patterns for textile and surface printing.",
+  "description": "Open, cross-border library of original seamless surface patterns inspired by the Amazon rainforest. Production-ready for textile and surface printing.",
   "license": "GPL-3.0-only",
   "type": "module",
   "scripts": {

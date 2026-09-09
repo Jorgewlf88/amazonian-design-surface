@@ -7,7 +7,7 @@ locale: en
 ## What this is
 
 `amazonian-design-surface` is a public, versioned library of original surface patterns inspired by the
-flora, fauna and cultural heritage of the Amazon basin — across Ecuador, Peru, Brazil, Colombia,
+flora, fauna and cultural heritage of the Amazon rainforest, across Ecuador, Peru, Brazil, Colombia,
 Bolivia, Venezuela, Guyana, Suriname and French Guiana.
 
 Every asset is production-ready: seamless, 300 DPI, colour-managed to CMYK Coated FOGRA39, and

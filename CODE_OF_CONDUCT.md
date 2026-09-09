@@ -10,12 +10,12 @@ ethnicity, gender identity, age, disability, level of experience or artistic bac
 
 Expected behaviour:
 
-- Communicate respectfully in English, Spanish or Portuguese — none of the three is the "real" language
+- Communicate respectfully in English, Spanish or Portuguese: none of the three is the "real" language
   of this project. Do not penalise a contributor for imperfect fluency.
 - Credit artists and translators explicitly.
 - Treat Indigenous and local visual traditions as belonging to living peoples, not as free raw material.
   Follow [`docs/cultural-attribution.md`](docs/cultural-attribution.md).
-- Give technical critique on the work — the repeat, the separation, the key structure — not on the person.
+- Give technical critique on the work (the repeat, the separation, the key structure), not on the person.
 
 Unacceptable behaviour:
 

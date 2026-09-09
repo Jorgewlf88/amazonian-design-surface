@@ -37,7 +37,7 @@
     },
     "author": {
       "type": "object",
-      "description": "The artist. Required on every asset — an asset without declared authorship cannot be published.",
+      "description": "The artist. Required on every asset, an asset without declared authorship cannot be published.",
       "required": ["display_name", "github"],
       "additionalProperties": false,
       "properties": {
@@ -59,7 +59,7 @@
         },
         "collective": {
           "type": "string",
-          "description": "Optional. A workshop or community credited alongside the individual — never instead of them."
+          "description": "Optional. A workshop or community credited alongside the individual, never instead of them."
         }
       }
     },

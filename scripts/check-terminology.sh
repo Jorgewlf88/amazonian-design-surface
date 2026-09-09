@@ -5,7 +5,7 @@
 # tailoring molds. The vocabulary below must not appear anywhere except in the policy
 # documents that define the prohibition.
 #
-# See CONTRIBUTING.md → "Terminology constraint (non-negotiable)".
+# See CONTRIBUTING.md, "Terminology constraint (non-negotiable)".
 
 set -uo pipefail
 
@@ -29,4 +29,4 @@ if matches=$(git grep -nIiE "$PROHIBITED" -- . "${POLICY_DOCS[@]}"); then
   exit 1
 fi
 
-echo "✔ No prohibited terminology found."
+echo "No prohibited terminology found."

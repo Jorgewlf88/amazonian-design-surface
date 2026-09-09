@@ -1,4 +1,4 @@
-# ADR 0001 — Static site with file-based internationalisation
+# ADR 0001: Static site with file-based internationalisation
 
 - **Status:** Accepted
 - **Date:** 2026-09-08
@@ -24,15 +24,15 @@ under `web/locales/<tag>/`.
 
 ## Consequences
 
-**Positive** — translators contribute through the GitHub web editor with no toolchain. Every page is
+**Positive**: translators contribute through the GitHub web editor with no toolchain. Every page is
 statically indexable in-language. Adding a locale is a directory copy plus one config line.
 
-**Negative** — key parity must be enforced mechanically or locales drift; hence
+**Negative**: key parity must be enforced mechanically or locales drift; hence
 `scripts/validate-locales.mjs` and the `validate-locales` workflow. Build time grows linearly with
 locale count, which is acceptable at this scale.
 
 ## Design patterns applied
 
-- **Adapter** — `web/src/data/` adapts `meta.json` records into the site's view model.
-- **Strategy** — locale resolution is a swappable strategy (URL segment → stored preference →
-  `Accept-Language` → default).
+- **Adapter**: `web/src/data/` adapts `meta.json` records into the site's view model.
+- **Strategy**: locale resolution is a swappable strategy (URL segment, then stored preference, then
+  `Accept-Language`, then default).

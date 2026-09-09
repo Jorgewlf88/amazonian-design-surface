@@ -1,4 +1,4 @@
-name: 🧵 Asset defect
+name: Asset defect
 description: Report a broken repeat, colour drift, wrong profile or bad export.
 title: "[defect]: "
 labels: ["asset-defect", "needs-triage"]
