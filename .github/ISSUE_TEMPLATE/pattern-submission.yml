@@ -51,6 +51,17 @@ body:
     validations:
       required: true
 
+  - type: input
+    id: credit-name
+    attributes:
+      label: Name to credit
+      description: >-
+        The name you sign with, reproduced verbatim in every credit line by anyone who uses this
+        design. A pseudonym or studio name is fine. You keep your copyright.
+      placeholder: Ana Ruiz
+    validations:
+      required: true
+
   - type: textarea
     id: inspiration
     attributes:

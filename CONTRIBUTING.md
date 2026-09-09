@@ -21,6 +21,7 @@ Before anything else, read the [Code of Conduct](CODE_OF_CONDUCT.md) and the
 - [Web localization contribution path](#web-localization-contribution-path)
 - [Website code contributions](#website-code-contributions)
 - [Review, licensing and attribution](#review-licensing-and-attribution)
+  - [How you are credited](#how-you-are-credited)
 
 ---
 
@@ -102,7 +103,12 @@ amazonia-[country_origin]-[tier]-[motif_name]-[v]
     "custodian_consent": "documented",     // not-applicable | documented | pending
     "inspiration_notes": "Drawn from field study of textile kené line structure, 2025."
   },
-  "author": { "name": "Full Name", "github": "@handle", "country": "ec" },
+  "author": {
+    "display_name": "Ana Ruiz",              // The name you sign with — a pseudonym is fine
+    "github": "@handle",
+    "country": "ec",
+    "url": "https://example.com/ana-ruiz"    // Optional portfolio link, shown on your asset card
+  },
   "repeat": { "type": "half-drop", "offset_percent": 50, "size_cm": [24.0, 24.0] },
   "color": { "profile": "Coated FOGRA39", "colorways": 2, "flat_colors": 5 },
   "tooling": ["Adobe Illustrator 2026", "hand-drawn ink scan"],
@@ -252,9 +258,29 @@ locales.
 ## Review, licensing and attribution
 
 - By submitting, you certify you are the author, and you license artwork under **CC BY-SA 4.0** and
-  code under **GPL-3.0**.
-- You keep your copyright. You are credited by name in `meta.json`, on the website card and in
-  [`CHANGELOG.md`](CHANGELOG.md).
+  code under **GPL-3.0**. You are granting a licence — you are **not** transferring ownership.
+
+### How you are credited
+
+**You keep your copyright.** Your name travels with your work, and anyone who uses it — commercially
+included — must name *you*, not this repository alone. That obligation is enforced in four places:
+
+| Where | What it does |
+| --- | --- |
+| Your asset's `meta.json` | The authoritative record. `author.display_name` is **required**; the build fails without it. |
+| [`AUTHORS.md`](AUTHORS.md) | Generated from that metadata by `npm run build:authors`. Never edited by hand, so it cannot drift. |
+| Your asset card on the site | Shows your name, your portfolio link and a **Copy attribution** button, in all three languages. |
+| [`CHANGELOG.md`](CHANGELOG.md) | Credits you in the release that introduces your work. |
+
+`display_name` is the name you sign with — **a pseudonym or studio name is as binding as a legal
+name**, and downstream users must reproduce it verbatim. Add `legal_name` only if you want it on
+record alongside it; it is never substituted for `display_name` in public credits. If you worked with
+a workshop or community, name it in `author.collective` — it is credited *alongside* you, never
+instead of you.
+
+The attribution formats users must follow are defined in
+[LICENSE-ASSETS.md → How to credit](LICENSE-ASSETS.md#how-to-credit--required-attribution-format).
+Crediting `amazonian-design-surface` while omitting the artist does not satisfy the licence.
 - Maintainers may request changes for repeat integrity, colour compliance, naming or provenance.
   Provenance concerns are the only category where a maintainer may close a PR without a revision cycle.
 - Assets found to violate the creative rules after merge are removed, and the removal is documented in

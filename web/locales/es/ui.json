@@ -36,18 +36,27 @@
     "author": "Ilustración de {author}",
     "license": "Licencia CC BY-SA 4.0",
     "custodianship_pending": "Revisión de custodia cultural en curso",
-    "custodianship_documented": "Custodia cultural documentada"
+    "custodianship_documented": "Custodia cultural documentada",
+    "attribution_label": "Cómo acreditar este diseño",
+    "attribution_note": "La atribución es una condición de la licencia. Acredita a la autoría por su nombre, no solo a este archivo.",
+    "attribution_short": "Formato corto — etiquetas y empaque",
+    "attribution_full": "Formato completo — fichas de producto y créditos",
+    "author_retains_copyright": "{author} conserva sus derechos de autor. Te concede una licencia CC BY-SA 4.0."
   },
   "actions": {
     "search": "Buscar en la colección",
     "copy_id": "Copiar identificador del recurso",
     "copied": "Copiado",
-    "back_to_collection": "Volver a la colección"
+    "back_to_collection": "Volver a la colección",
+    "copy_attribution": "Copiar atribución",
+    "attribution_copied": "Atribución copiada",
+    "view_all_authors": "Todas las autorías"
   },
   "footer": {
     "artwork_license": "Ilustraciones: CC BY-SA 4.0",
     "code_license": "Código: GPL-3.0",
     "contribute_cta": "Aporta un patrón",
-    "translate_cta": "Ayuda a traducir este sitio"
+    "translate_cta": "Ayuda a traducir este sitio",
+    "authors_cta": "Autorías de este archivo"
   }
 }

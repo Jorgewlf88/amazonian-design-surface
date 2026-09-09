@@ -117,12 +117,14 @@ amazonian-design-surface/
 │   ├── validate-naming.mjs             # Nomenclature + mandatory meta.json
 │   ├── validate-locales.mjs            # Locale key parity and placeholder integrity
 │   ├── check-terminology.sh            # Rejects garment-construction vocabulary
-│   └── build-catalog.mjs               # meta.json → dist/catalog.json
+│   ├── build-catalog.mjs               # meta.json → dist/catalog.json + credit lines
+│   └── build-authors.mjs               # meta.json → AUTHORS.md
 │
 ├── package.json                    # Repository-level validators
 ├── .editorconfig
 ├── .gitattributes                  # Git LFS tracking for binary design files
 ├── .gitignore
+├── AUTHORS.md                      # Generated credit roster — every artist, every design
 ├── CHANGELOG.md
 ├── CODE_OF_CONDUCT.md
 ├── CONTRIBUTING.md
@@ -315,14 +317,39 @@ The validators run from any directory and are the same checks CI enforces.
 | Website source, scripts and tooling | [GPL-3.0](LICENSE) |
 | Artwork, patterns and `dist/` deliverables | [CC BY-SA 4.0](LICENSE-ASSETS.md) — attribution + share-alike |
 
-Attribution must name the individual artist and this repository. Commercial printing of the artwork is
-permitted under share-alike; selling the *files themselves* as a standalone asset pack is not in the
-spirit of the archive and is explicitly discouraged.
+Commercial printing of the artwork is permitted under share-alike; selling the *files themselves* as a
+standalone asset pack is not in the spirit of the archive and is explicitly discouraged.
+
+### Crediting the artists
+
+Every design is the work of a **named person who keeps their copyright** and grants a licence. Naming
+them is a condition of that licence — crediting `amazonian-design-surface` alone does **not** satisfy
+it. Use one of the required formats:
+
+```text
+# Short — care labels, selvedge, packaging
+"Kené Geometry" © Ana Ruiz · amazonian-design-surface · CC BY-SA 4.0
+
+# Full — product pages, credits, licence sheets
+"Kené Geometry" (amazonia-pe-hero-kene-geometry-v01) by Ana Ruiz.
+From amazonian-design-surface — https://github.com/OWNER/amazonian-design-surface
+Licensed under CC BY-SA 4.0 — https://creativecommons.org/licenses/by-sa/4.0/
+Changes: recoloured to a two-colour palette.
+```
+
+Every asset card on the showcase site carries a **Copy attribution** button, and `dist/catalog.json`
+ships the ready-made credit lines, so no downstream user has to compose their own. The complete rules —
+including what does *not* count as attribution — are in
+[LICENSE-ASSETS.md → How to credit](LICENSE-ASSETS.md#how-to-credit--required-attribution-format).
+
+Contributors are credited in their asset's `meta.json`, in [AUTHORS.md](AUTHORS.md), on the website
+card in all three languages, and in [CHANGELOG.md](CHANGELOG.md).
 
 ---
 
 ## Community
 
 - [Contributing guide](CONTRIBUTING.md) · [Code of Conduct](CODE_OF_CONDUCT.md) · [Governance](GOVERNANCE.md)
+- [Artists in this archive](AUTHORS.md) — every contributor, every design they authored
 - [Cultural attribution policy](docs/cultural-attribution.md)
 - Open a [pattern submission issue](.github/ISSUE_TEMPLATE/pattern-submission.yml) before starting a large hero design.

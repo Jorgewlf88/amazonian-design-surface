@@ -36,18 +36,27 @@
     "author": "Artwork by {author}",
     "license": "Licensed CC BY-SA 4.0",
     "custodianship_pending": "Custodianship review in progress",
-    "custodianship_documented": "Cultural custodianship documented"
+    "custodianship_documented": "Cultural custodianship documented",
+    "attribution_label": "How to credit this design",
+    "attribution_note": "Attribution is a licence condition. Credit the artist by name, not this archive alone.",
+    "attribution_short": "Short format — labels and packaging",
+    "attribution_full": "Full format — product pages and credits",
+    "author_retains_copyright": "{author} retains copyright. Licensed to you under CC BY-SA 4.0."
   },
   "actions": {
     "search": "Search the collection",
     "copy_id": "Copy asset identifier",
     "copied": "Copied",
-    "back_to_collection": "Back to the collection"
+    "back_to_collection": "Back to the collection",
+    "copy_attribution": "Copy attribution",
+    "attribution_copied": "Attribution copied",
+    "view_all_authors": "All artists"
   },
   "footer": {
     "artwork_license": "Artwork: CC BY-SA 4.0",
     "code_license": "Code: GPL-3.0",
     "contribute_cta": "Contribute a pattern",
-    "translate_cta": "Help translate this site"
+    "translate_cta": "Help translate this site",
+    "authors_cta": "Artists in this archive"
   }
 }

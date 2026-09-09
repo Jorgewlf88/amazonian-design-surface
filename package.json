@@ -10,7 +10,9 @@
     "validate:naming": "node scripts/validate-naming.mjs",
     "validate:locales": "node scripts/validate-locales.mjs",
     "validate:terms": "bash scripts/check-terminology.sh",
-    "build:catalog": "node scripts/build-catalog.mjs"
+    "build:catalog": "node scripts/build-catalog.mjs",
+    "build:authors": "node scripts/build-authors.mjs",
+    "build": "npm run build:catalog && npm run build:authors"
   },
   "engines": {
     "node": ">=20"

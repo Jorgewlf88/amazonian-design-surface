@@ -10,6 +10,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "build:catalog": "node ../scripts/build-catalog.mjs",
+    "build:authors": "node ../scripts/build-authors.mjs",
     "validate:naming": "node ../scripts/validate-naming.mjs",
     "validate:locales": "node ../scripts/validate-locales.mjs"
   },

@@ -37,11 +37,30 @@
     },
     "author": {
       "type": "object",
-      "required": ["name", "github"],
+      "description": "The artist. Required on every asset — an asset without declared authorship cannot be published.",
+      "required": ["display_name", "github"],
+      "additionalProperties": false,
       "properties": {
-        "name": { "type": "string" },
+        "display_name": {
+          "type": "string",
+          "description": "The name the artist signs with, used verbatim in every credit line. A pseudonym or studio name is as binding as a legal name.",
+          "minLength": 2
+        },
+        "legal_name": {
+          "type": "string",
+          "description": "Optional. Only if the artist wants it on record alongside a pseudonym. Never substituted for display_name in public credits."
+        },
         "github": { "type": "string", "pattern": "^@[A-Za-z0-9-]+$" },
-        "country": { "type": "string" }
+        "country": { "type": "string" },
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "description": "Optional portfolio or studio link, shown on the asset card."
+        },
+        "collective": {
+          "type": "string",
+          "description": "Optional. A workshop or community credited alongside the individual — never instead of them."
+        }
       }
     },
     "repeat": {

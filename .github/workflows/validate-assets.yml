@@ -2,7 +2,7 @@ name: validate-assets
 
 on:
   pull_request:
-    paths: ["src/collection/**", "dist/**", "mockups/**", "scripts/validate-naming.mjs"]
+    paths: ["src/collection/**", "dist/**", "mockups/**", "AUTHORS.md", "scripts/**"]
 
 jobs:
   naming:
@@ -17,6 +17,25 @@ jobs:
           node-version: "20"
       - name: Validate file naming against the nomenclature standard
         run: node scripts/validate-naming.mjs
+
+  credits:
+    name: Attribution and credit roster
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Every asset declares an artist, and AUTHORS.md matches the metadata
+        run: |
+          # build-authors.mjs exits non-zero if any meta.json lacks author.display_name.
+          node scripts/build-authors.mjs
+          if ! git diff --quiet -- AUTHORS.md; then
+            echo "::error::AUTHORS.md is out of date. Run 'npm run build:authors' and commit the result."
+            git diff -- AUTHORS.md
+            exit 1
+          fi
+          echo "AUTHORS.md is in sync with the collection metadata."
 
   terminology:
     name: Prohibited terminology

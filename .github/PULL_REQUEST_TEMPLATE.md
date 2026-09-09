@@ -25,7 +25,12 @@
 - [ ] 100% original artwork authored by me.
 - [ ] No unregulated commercial AI-generated imagery, including as a traced underlayer.
 - [ ] Any machine assistance (vectorisation, denoise, procedural generation I authored) is disclosed in `meta.json` → `tooling`.
-- [ ] I license this artwork under CC BY-SA 4.0.
+- [ ] I license this artwork under CC BY-SA 4.0, and I understand I keep my copyright.
+
+### Attribution
+- [ ] `meta.json` declares `author.display_name` — **the name I want reproduced in every credit line**.
+- [ ] `npm run build:authors` was run and the updated `AUTHORS.md` is committed.
+- [ ] If a workshop or community collaborated, it is named in `author.collective` (alongside me, not instead of me).
 
 ### Regional origin declaration
 - [ ] `country_origin` present in the file name.

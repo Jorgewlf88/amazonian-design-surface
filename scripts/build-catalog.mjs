@@ -21,6 +21,8 @@ const fromRoot = (...segments) => join(REPO_ROOT, ...segments);
 
 const COLLECTION_DIR = 'src/collection';
 const OUTPUT = 'dist/catalog.json';
+const REPOSITORY_NAME = 'amazonian-design-surface';
+const REPOSITORY_URL = 'https://github.com/OWNER/amazonian-design-surface';
 
 const TIER_BY_FOLDER = {
   'hero-patterns': 'hero',
@@ -48,6 +50,13 @@ for (const [folder, tierCode] of Object.entries(TIER_BY_FOLDER)) {
     const meta = JSON.parse(readFileSync(metaPath, 'utf8'));
     const country = meta.origin?.country ?? 'pan';
     const version = meta.version ?? 'v01';
+    const artist = meta.author?.display_name;
+
+    if (!artist) {
+      console.error(`✖ ${COLLECTION_DIR}/${folder}/${design}: meta.json has no author.display_name.`);
+      console.error('  Attribution is mandatory. See LICENSE-ASSETS.md → "How to credit".');
+      process.exit(1);
+    }
 
     assets.push({
       id: meta.id,
@@ -59,6 +68,17 @@ for (const [folder, tierCode] of Object.entries(TIER_BY_FOLDER)) {
       repeat: meta.repeat,
       color: meta.color,
       author: meta.author,
+      // Ready-to-copy credit lines, so a downstream user never has to compose their own.
+      // Formats are defined in LICENSE-ASSETS.md → "How to credit".
+      attribution: {
+        short: `"${meta.title?.en ?? meta.id}" © ${artist} · ${REPOSITORY_NAME} · CC BY-SA 4.0`,
+        inline: `Surface design "${meta.title?.en ?? meta.id}" by ${artist} (${REPOSITORY_NAME}), CC BY-SA 4.0.`,
+        full: [
+          `"${meta.title?.en ?? meta.id}" (${meta.id}-${version}) by ${artist}.`,
+          `From ${REPOSITORY_NAME} — ${REPOSITORY_URL}`,
+          'Licensed under CC BY-SA 4.0 — https://creativecommons.org/licenses/by-sa/4.0/',
+        ].join('\n'),
+      },
       custodian_consent: meta.origin?.custodian_consent ?? 'not-applicable',
       cultural_reference: meta.origin?.cultural_reference ?? null,
       license: meta.license,

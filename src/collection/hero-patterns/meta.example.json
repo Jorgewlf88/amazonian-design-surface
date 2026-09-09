@@ -19,7 +19,12 @@
     "custodian_consent": "pending",
     "inspiration_notes": "Example record. Replace with a real field-study or collaboration note."
   },
-  "author": { "name": "Full Name", "github": "@handle", "country": "ec" },
+  "author": {
+    "display_name": "Ana Ruiz",
+    "github": "@handle",
+    "country": "ec",
+    "url": "https://example.com/ana-ruiz"
+  },
   "repeat": { "type": "half-drop", "offset_percent": 50, "size_cm": [24.0, 24.0] },
   "color": {
     "profile": "Coated FOGRA39",
