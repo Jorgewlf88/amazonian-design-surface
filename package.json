@@ -1,0 +1,18 @@
+{
+  "name": "amazonian-design-surface",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Open, cross-border library of original Amazonian surface patterns for textile and surface printing.",
+  "license": "GPL-3.0-only",
+  "type": "module",
+  "scripts": {
+    "validate": "npm run validate:naming && npm run validate:locales && npm run validate:terms",
+    "validate:naming": "node scripts/validate-naming.mjs",
+    "validate:locales": "node scripts/validate-locales.mjs",
+    "validate:terms": "bash scripts/check-terminology.sh",
+    "build:catalog": "node scripts/build-catalog.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

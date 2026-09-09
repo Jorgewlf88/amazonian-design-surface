@@ -1,0 +1,28 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Site build output
+web/dist/
+web/.astro/
+web/.cache/
+
+# Generated catalog (rebuilt in CI)
+dist/catalog.json
+
+# OS and editor cruft
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/extensions.json
+
+# Design application temporaries
+*.tmp
+~$*
+*.ai.lock
+Adobe*Recovery/
+
+# Environment
+.env
+.env.local
