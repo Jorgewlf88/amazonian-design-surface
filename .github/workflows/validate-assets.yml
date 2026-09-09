@@ -1,0 +1,29 @@
+name: validate-assets
+
+on:
+  pull_request:
+    paths: ["src/collection/**", "dist/**", "mockups/**", "scripts/validate-naming.mjs"]
+
+jobs:
+  naming:
+    name: Nomenclature and metadata
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Validate file naming against the nomenclature standard
+        run: node scripts/validate-naming.mjs
+
+  terminology:
+    name: Prohibited terminology
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Reject garment-construction vocabulary
+        run: bash scripts/check-terminology.sh

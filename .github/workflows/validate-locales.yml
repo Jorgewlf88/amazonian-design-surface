@@ -1,0 +1,20 @@
+name: validate-locales
+
+on:
+  pull_request:
+    paths: ["web/locales/**", "web/src/data/i18n.config.js", "scripts/validate-locales.mjs"]
+  push:
+    branches: [main]
+    paths: ["web/locales/**"]
+
+jobs:
+  key-parity:
+    name: Locale key parity against en/
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Check that every locale mirrors the English key structure
+        run: node scripts/validate-locales.mjs
