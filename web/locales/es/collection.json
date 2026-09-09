@@ -1,0 +1,36 @@
+{
+  "tiers": {
+    "hero": { "label": "Principal", "description": "Gráficos focales complejos que sostienen la colección." },
+    "sec": { "label": "Secundario", "description": "Motivos de apoyo que coordinan con un diseño principal." },
+    "blnd": { "label": "Blender", "description": "Texturas estructurales, rellenos geométricos y diseños circulares." }
+  },
+  "countries": {
+    "ec": "Ecuador",
+    "pe": "Perú",
+    "br": "Brasil",
+    "co": "Colombia",
+    "bo": "Bolivia",
+    "ve": "Venezuela",
+    "gy": "Guyana",
+    "sr": "Surinam",
+    "gf": "Guayana Francesa",
+    "pan": "Panamazónico"
+  },
+  "motif_families": {
+    "flora": "Flora",
+    "fauna": "Fauna",
+    "geometric": "Geométrico",
+    "ritual_geometry": "Geometría ritual",
+    "landscape": "Río y paisaje",
+    "fiber": "Fibra y tejido"
+  },
+  "repeat_types": {
+    "full-drop": "Rapport recto",
+    "half-drop": "Rapport a media caída",
+    "brick": "Rapport ladrillo / desplazado"
+  },
+  "colors": {
+    "green": "Verde", "ochre": "Ocre", "terracotta": "Terracota",
+    "indigo": "Índigo", "black": "Negro", "natural": "Natural"
+  }
+}

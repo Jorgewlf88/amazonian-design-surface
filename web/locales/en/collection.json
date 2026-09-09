@@ -1,0 +1,36 @@
+{
+  "tiers": {
+    "hero": { "label": "Hero", "description": "Complex focal graphics that carry the collection." },
+    "sec": { "label": "Secondary", "description": "Supporting motifs that coordinate with a hero design." },
+    "blnd": { "label": "Blender", "description": "Structural textures, geometric fillers and circular designs." }
+  },
+  "countries": {
+    "ec": "Ecuador",
+    "pe": "Peru",
+    "br": "Brazil",
+    "co": "Colombia",
+    "bo": "Bolivia",
+    "ve": "Venezuela",
+    "gy": "Guyana",
+    "sr": "Suriname",
+    "gf": "French Guiana",
+    "pan": "Pan-Amazonian"
+  },
+  "motif_families": {
+    "flora": "Flora",
+    "fauna": "Fauna",
+    "geometric": "Geometric",
+    "ritual_geometry": "Ritual geometry",
+    "landscape": "River and landscape",
+    "fiber": "Fibre and weave"
+  },
+  "repeat_types": {
+    "full-drop": "Full drop",
+    "half-drop": "Half drop",
+    "brick": "Brick / offset"
+  },
+  "colors": {
+    "green": "Green", "ochre": "Ochre", "terracotta": "Terracotta",
+    "indigo": "Indigo", "black": "Black", "natural": "Natural"
+  }
+}

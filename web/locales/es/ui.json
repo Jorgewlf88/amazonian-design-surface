@@ -1,0 +1,53 @@
+{
+  "site": {
+    "name": "amazonian-design-surface",
+    "tagline": "Una biblioteca abierta de patrones de superficie amazónicos para estampación textil y de superficies."
+  },
+  "nav": {
+    "collection": "Colección",
+    "about": "Acerca de",
+    "manifesto": "Manifiesto",
+    "how_to_use": "Cómo usarlos",
+    "contribute": "Contribuir",
+    "repository": "Repositorio"
+  },
+  "language_toggle": {
+    "label": "Idioma",
+    "aria_label": "Cambiar el idioma de la interfaz",
+    "current": "Idioma actual: {language}"
+  },
+  "filters": {
+    "title": "Filtrar",
+    "tier": "Nivel de superficie",
+    "country": "País de origen",
+    "motif_family": "Familia de motivos",
+    "color": "Color dominante",
+    "repeat_type": "Tipo de rapport",
+    "clear": "Limpiar filtros",
+    "results_count": "{count} patrones encontrados",
+    "no_results": "Ningún patrón coincide con estos filtros."
+  },
+  "asset_card": {
+    "download_master": "Descargar máster TIFF",
+    "download_vector": "Descargar vector",
+    "view_source": "Ver archivos fuente",
+    "repeat_size": "Rapport: {width} × {height} cm",
+    "resolution": "300 DPI · CMYK Coated FOGRA39",
+    "author": "Ilustración de {author}",
+    "license": "Licencia CC BY-SA 4.0",
+    "custodianship_pending": "Revisión de custodia cultural en curso",
+    "custodianship_documented": "Custodia cultural documentada"
+  },
+  "actions": {
+    "search": "Buscar en la colección",
+    "copy_id": "Copiar identificador del recurso",
+    "copied": "Copiado",
+    "back_to_collection": "Volver a la colección"
+  },
+  "footer": {
+    "artwork_license": "Ilustraciones: CC BY-SA 4.0",
+    "code_license": "Código: GPL-3.0",
+    "contribute_cta": "Aporta un patrón",
+    "translate_cta": "Ayuda a traducir este sitio"
+  }
+}

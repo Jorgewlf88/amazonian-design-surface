@@ -1,0 +1,53 @@
+{
+  "site": {
+    "name": "amazonian-design-surface",
+    "tagline": "An open library of Amazonian surface patterns for textile and surface printing."
+  },
+  "nav": {
+    "collection": "Collection",
+    "about": "About",
+    "manifesto": "Manifesto",
+    "how_to_use": "How to use",
+    "contribute": "Contribute",
+    "repository": "Repository"
+  },
+  "language_toggle": {
+    "label": "Language",
+    "aria_label": "Change interface language",
+    "current": "Current language: {language}"
+  },
+  "filters": {
+    "title": "Filter",
+    "tier": "Surface tier",
+    "country": "Country of origin",
+    "motif_family": "Motif family",
+    "color": "Dominant colour",
+    "repeat_type": "Repeat type",
+    "clear": "Clear filters",
+    "results_count": "{count} patterns found",
+    "no_results": "No patterns match these filters."
+  },
+  "asset_card": {
+    "download_master": "Download TIFF master",
+    "download_vector": "Download vector",
+    "view_source": "View source files",
+    "repeat_size": "Repeat: {width} × {height} cm",
+    "resolution": "300 DPI · CMYK Coated FOGRA39",
+    "author": "Artwork by {author}",
+    "license": "Licensed CC BY-SA 4.0",
+    "custodianship_pending": "Custodianship review in progress",
+    "custodianship_documented": "Cultural custodianship documented"
+  },
+  "actions": {
+    "search": "Search the collection",
+    "copy_id": "Copy asset identifier",
+    "copied": "Copied",
+    "back_to_collection": "Back to the collection"
+  },
+  "footer": {
+    "artwork_license": "Artwork: CC BY-SA 4.0",
+    "code_license": "Code: GPL-3.0",
+    "contribute_cta": "Contribute a pattern",
+    "translate_cta": "Help translate this site"
+  }
+}
