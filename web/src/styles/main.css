@@ -1,0 +1,155 @@
+@import "tailwindcss";
+
+/* Scan the generated output — the site is built before the stylesheet is compiled. */
+@source "../../dist/**/*.html";
+
+/* ---------------------------------------------------------------------------
+   Palette. Amazonian greens and earths, kept deliberately narrow so the
+   artwork on the page is always the most saturated thing in view.
+   --------------------------------------------------------------------------- */
+@theme {
+  --color-canvas: oklch(98.5% 0.008 120);
+  --color-surface: oklch(100% 0 0);
+  --color-ink: oklch(22% 0.02 150);
+  --color-muted: oklch(48% 0.02 150);
+  --color-line: oklch(90% 0.012 140);
+  --color-canopy: oklch(38% 0.09 155);
+  --color-canopy-soft: oklch(94% 0.03 155);
+  --color-achiote: oklch(58% 0.15 45);
+  --color-river: oklch(45% 0.06 230);
+
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+  @theme {
+    --color-canvas: oklch(18% 0.015 150);
+    --color-surface: oklch(23% 0.018 150);
+    --color-ink: oklch(94% 0.01 140);
+    --color-muted: oklch(70% 0.02 140);
+    --color-line: oklch(32% 0.02 150);
+    --color-canopy: oklch(78% 0.11 155);
+    --color-canopy-soft: oklch(28% 0.04 155);
+  }
+}
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font-sans); }
+  ::selection { background: var(--color-canopy-soft); }
+}
+
+@layer components {
+  .shell { @apply mx-auto w-full max-w-6xl px-5 sm:px-8; }
+
+  .skip-link {
+    @apply absolute left-4 top-4 z-50 -translate-y-24 rounded bg-canopy px-4 py-2 text-sm text-canvas
+           focus:translate-y-0;
+  }
+
+  /* Header ---------------------------------------------------------------- */
+  .site-header { @apply sticky top-0 z-40 border-b border-line bg-canvas/90 backdrop-blur; }
+  .brand { @apply flex items-center gap-2.5 font-medium tracking-tight; }
+  .brand-mark {
+    @apply block size-4 shrink-0 rounded-sm bg-canopy;
+    background-image: repeating-linear-gradient(45deg, transparent 0 3px, color-mix(in oklch, var(--color-canvas) 55%, transparent) 3px 6px);
+  }
+  .brand-name { @apply font-mono text-[0.9rem]; }
+  .nav { @apply flex flex-wrap items-center gap-x-5 gap-y-1 text-sm; }
+  .nav-link { @apply text-muted transition-colors hover:text-ink; }
+  .nav-link-active { @apply text-ink underline decoration-canopy decoration-2 underline-offset-[6px]; }
+
+  /* Language toggle ------------------------------------------------------- */
+  .lang-toggle { @apply ms-auto flex items-center gap-1 text-xs; }
+  .lang-label { @apply sr-only; }
+  .lang-option {
+    @apply rounded-full border border-line px-2.5 py-1 text-muted transition-colors
+           hover:border-canopy hover:text-ink;
+  }
+  .lang-option-active { @apply border-canopy bg-canopy-soft font-medium text-ink; }
+
+  /* Hero ------------------------------------------------------------------ */
+  .hero { @apply border-b border-line bg-canopy-soft/40; }
+  .hero-eyebrow { @apply font-mono text-xs uppercase tracking-[0.2em] text-canopy; }
+  .hero-title { @apply mt-4 max-w-3xl text-balance text-3xl font-semibold leading-tight tracking-tight sm:text-4xl md:text-5xl; }
+  .hero-actions { @apply mt-8 flex flex-wrap gap-3; }
+  .hero-stats { @apply mt-12 flex flex-wrap gap-x-10 gap-y-4; }
+  .hero-stats dt { @apply font-mono text-[0.7rem] uppercase tracking-widest text-muted; }
+  .hero-stats dd { @apply text-2xl font-semibold tabular-nums; }
+
+  /* Buttons --------------------------------------------------------------- */
+  .btn-primary {
+    @apply inline-flex items-center rounded-md bg-canopy px-4 py-2 text-sm font-medium text-canvas
+           transition-opacity hover:opacity-90;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center rounded-md border border-line px-4 py-2 text-sm font-medium
+           transition-colors hover:border-canopy;
+  }
+  .btn-small { @apply inline-flex items-center rounded border border-line px-2.5 py-1.5 text-xs transition-colors hover:border-canopy; }
+
+  /* Tiers ----------------------------------------------------------------- */
+  .tier-grid { @apply grid gap-6 md:grid-cols-3; }
+  .tier-card { @apply rounded-lg border border-line bg-surface p-6; }
+  .tier-name { @apply text-lg font-semibold; }
+  .tier-copy { @apply mt-2 text-sm leading-relaxed text-muted; }
+
+  /* Collection ------------------------------------------------------------ */
+  .page-title { @apply text-2xl font-semibold tracking-tight sm:text-3xl; }
+  .filters { @apply mt-8 flex flex-wrap items-start gap-6 rounded-lg border border-line bg-surface p-5; }
+  .filter-group { @apply min-w-0; }
+  .filter-group legend { @apply mb-2 font-mono text-[0.7rem] uppercase tracking-widest text-muted; }
+  .chip-row { @apply flex flex-wrap gap-2; }
+  .chip {
+    @apply inline-flex cursor-pointer items-center gap-1.5 rounded-full border border-line px-3 py-1
+           text-xs transition-colors hover:border-canopy has-checked:border-canopy has-checked:bg-canopy-soft;
+  }
+  .chip input { @apply size-3 accent-canopy; }
+
+  .results-count { @apply mt-6 font-mono text-xs uppercase tracking-widest text-muted; }
+  .card-grid { @apply mt-4 grid gap-6 sm:grid-cols-2 lg:grid-cols-3; }
+  .card { @apply overflow-hidden rounded-lg border border-line bg-surface transition-shadow hover:shadow-lg; }
+  .card-preview { @apply aspect-square overflow-hidden bg-canopy-soft; }
+  .card-preview img { @apply size-full object-cover; }
+  .card-body { @apply space-y-2 p-5; }
+  .card-tier { @apply font-mono text-[0.7rem] uppercase tracking-widest text-canopy; }
+  .card-title { @apply text-lg font-semibold leading-snug; }
+  .card-copy { @apply text-sm leading-relaxed text-muted; }
+  .card-author { @apply text-sm font-medium; }
+  .card-meta { @apply font-mono text-xs text-muted; }
+  .card-attribution-note { @apply border-s-2 border-achiote ps-3 text-xs leading-relaxed text-muted; }
+  .card-actions { @apply flex flex-wrap gap-2 pt-2; }
+
+  .badge { @apply inline-block rounded px-2 py-0.5 text-[0.7rem] font-medium; }
+  .badge-warn { @apply bg-achiote/15 text-achiote; }
+  .badge-ok { @apply bg-canopy-soft text-canopy; }
+
+  .empty-state { @apply mt-10 rounded-lg border border-dashed border-line p-10 text-center text-muted; }
+  .empty-archive h2 { @apply text-xl font-semibold text-ink; }
+  .empty-archive p { @apply mx-auto mt-3 max-w-prose text-sm leading-relaxed; }
+  .empty-archive .btn-primary { @apply mt-6; }
+
+  /* Long-form content ----------------------------------------------------- */
+  .prose { @apply max-w-3xl; }
+  .prose h2 { @apply mt-10 text-xl font-semibold tracking-tight first:mt-0; }
+  .prose h3 { @apply mt-8 text-lg font-semibold; }
+  .prose p { @apply mt-4 leading-relaxed text-muted; }
+  .prose ul, .prose ol { @apply mt-4 space-y-2 ps-6 text-muted; }
+  .prose ul { @apply list-disc; }
+  .prose ol { @apply list-decimal; }
+  .prose strong { @apply font-semibold text-ink; }
+  .prose a { @apply text-canopy underline underline-offset-4; }
+  .prose code { @apply rounded bg-canopy-soft px-1.5 py-0.5 font-mono text-[0.85em]; }
+  .prose pre {
+    @apply mt-5 overflow-x-auto rounded-lg border border-line bg-surface p-4 font-mono text-xs leading-relaxed;
+  }
+  .prose pre code { @apply bg-transparent p-0; }
+
+  /* Footer ---------------------------------------------------------------- */
+  .site-footer { @apply mt-20 border-t border-line bg-surface; }
+  .footer-title { @apply font-mono text-sm; }
+  .footer-note { @apply mt-2 max-w-sm text-sm leading-relaxed text-muted; }
+  .footer-links { @apply flex flex-col gap-2 text-sm; }
+  .footer-links a { @apply text-muted transition-colors hover:text-ink; }
+}

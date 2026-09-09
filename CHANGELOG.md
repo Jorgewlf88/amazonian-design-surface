@@ -19,5 +19,13 @@ All notable changes to this archive are documented here. The format follows
 - Generated `AUTHORS.md` credit roster, enforced in CI so it cannot drift from asset metadata.
 - `author.display_name`, `author.url` and `author.collective` in the asset schema, so artists are
   credited under the name they sign with.
+- Static site generator (`scripts/build-site.mjs`) rendering 5 routes × 3 locales with no framework,
+  plus a `node:http` preview server. Two dependencies total — `@tailwindcss/cli` and `marked` — chosen
+  over Astro's 203-package tree so an archive meant to last decades is not tied to a yearly major
+  release cycle. Recorded as ADR 0002.
+
+### Fixed
+- `deploy-pages` no longer fails on a missing `web/package-lock.json`; the build now runs from a single
+  root manifest.
 
 [Unreleased]: https://github.com/Jorgewlf88/amazonian-design-surface/commits/main

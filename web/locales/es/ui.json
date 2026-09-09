@@ -58,5 +58,9 @@
     "contribute_cta": "Aporta un patrón",
     "translate_cta": "Ayuda a traducir este sitio",
     "authors_cta": "Autorías de este archivo"
+  },
+  "collection_page": {
+    "empty_title": "El archivo espera su primer diseño.",
+    "empty_body": "Todavía no se ha aportado ningún patrón de superficie. La colección se llena a medida que artistas de toda la cuenca envían obra original y lista para producción."
   }
 }

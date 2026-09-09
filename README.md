@@ -97,30 +97,27 @@ amazonian-design-surface/
 │   ├── stationery/                     # Paper goods, packaging
 │   └── templates/                      # Reusable smart-object mockup bases
 │
-├── web/                            # GitHub Pages showcase site
-│   ├── public/                         # Static assets served verbatim
-│   │   ├── images/
-│   │   ├── icons/
-│   │   └── fonts/
+├── web/                            # GitHub Pages showcase site (no framework)
+│   ├── public/                         # Copied verbatim: app.js, images, icons, fonts
 │   ├── src/
-│   │   ├── components/                 # UI building blocks
-│   │   ├── layouts/                    # Page shells (locale-aware)
-│   │   ├── pages/                      # Routes, generated per locale
-│   │   ├── styles/
-│   │   └── data/                       # Catalog loader / typed schema
-│   └── locales/                    # Internationalisation resources
-│       ├── en/                         # ui.json · collection.json · pages/*.md
-│       ├── es/
-│       └── pt/
+│   │   ├── styles/main.css             # Tailwind entry point + component layer
+│   │   └── data/                       # i18n.config.js · asset.schema.json
+│   ├── locales/                    # Internationalisation resources
+│   │   ├── en/                         # ui.json · collection.json · pages/*.md
+│   │   ├── es/
+│   │   └── pt/
+│   └── dist/                           # Build output — generated, git-ignored
 │
 ├── scripts/                        # Maintainer tooling
 │   ├── validate-naming.mjs             # Nomenclature + mandatory meta.json
 │   ├── validate-locales.mjs            # Locale key parity and placeholder integrity
 │   ├── check-terminology.sh            # Rejects garment-construction vocabulary
 │   ├── build-catalog.mjs               # meta.json → dist/catalog.json + credit lines
-│   └── build-authors.mjs               # meta.json → AUTHORS.md
+│   ├── build-authors.mjs               # meta.json → AUTHORS.md
+│   ├── build-site.mjs                  # Static generator — 5 routes × 3 locales
+│   └── serve.mjs                       # Preview server, node:http only
 │
-├── package.json                    # Repository-level validators
+├── package.json                    # Build pipeline + validators (2 dependencies)
 ├── .editorconfig
 ├── .gitattributes                  # Git LFS tracking for binary design files
 ├── .gitignore
@@ -210,6 +207,9 @@ A live showcase is published from this repository to **GitHub Pages**, built fro
   family (flora, fauna, geometric, ritual-geometry) and by dominant colour.
 - **Every card links back to the repository** — source file, licence, author and the exact `dist/`
   deliverable, so the site is a front door to the archive rather than a copy of it.
+- **Built without a framework** — a generator we own plus two dependencies
+  (`@tailwindcss/cli`, `marked`), so an archive meant to last decades is not tied to a toolchain that
+  majors every year. See [ADR 0002](docs/adr/0002-own-the-generator-instead-of-a-framework.md).
 
 Translation resources live in [`web/locales/`](web/locales/) and are open to contribution — see the
 [Web localization contribution path](CONTRIBUTING.md#web-localization-contribution-path).
@@ -297,13 +297,12 @@ git lfs install
 git clone https://github.com/<org>/amazonian-design-surface.git
 cd amazonian-design-surface
 
-# 2. Run the showcase site locally
-cd web
+# 2. Run the showcase site locally — two dependencies, no framework
 npm install
-npm run dev            # http://localhost:4321/en/
+npm run dev            # http://localhost:4321/amazonian-design-surface/
 
-# 3. Validate your submission before opening a pull request (from the repository root)
-npm run validate           # naming + locale parity + terminology gate
+# 3. Validate your submission before opening a pull request
+npm run validate       # naming + locale parity + terminology gate
 ```
 
 The validators run from any directory and are the same checks CI enforces.

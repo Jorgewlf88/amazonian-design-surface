@@ -58,5 +58,9 @@
     "contribute_cta": "Contribute a pattern",
     "translate_cta": "Help translate this site",
     "authors_cta": "Artists in this archive"
+  },
+  "collection_page": {
+    "empty_title": "The archive is waiting for its first design.",
+    "empty_body": "No surface patterns have been contributed yet. The collection fills as artists across the basin submit original, production-ready work."
   }
 }

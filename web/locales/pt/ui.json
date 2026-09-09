@@ -58,5 +58,9 @@
     "contribute_cta": "Contribua com um padrão",
     "translate_cta": "Ajude a traduzir este site",
     "authors_cta": "Autorias deste acervo"
+  },
+  "collection_page": {
+    "empty_title": "O acervo aguarda seu primeiro desenho.",
+    "empty_body": "Ainda não foi contribuído nenhum padrão de superfície. A coleção se preenche à medida que artistas de toda a bacia enviam obra original e pronta para produção."
   }
 }
