@@ -1,0 +1,25 @@
+name: 🛠️ Website or tooling request
+description: Propose an improvement to the showcase site, validators or build scripts.
+title: "[feat]: "
+labels: ["enhancement", "needs-triage"]
+body:
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options: ["web/ showcase site", "scripts/ validators", ".github/ automation", "docs/ standards"]
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: If this changes site architecture, note whether an ADR in docs/adr/ is needed.
+    validations:
+      required: true

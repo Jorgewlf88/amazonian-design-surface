@@ -1,0 +1,93 @@
+name: 🎨 Surface pattern submission
+description: Propose a new original surface design for the collection.
+title: "[surface]: "
+labels: ["surface-design", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Open this **before** starting a hero design, so maintainers can flag duplicate motifs
+        or custodianship questions early.
+
+        Reminder: this repository contains no garment templates. Do not use the terms
+        *sewing pattern*, *apparel pattern* or *patternmaking*.
+
+  - type: input
+    id: proposed-id
+    attributes:
+      label: Proposed asset identifier
+      description: "Follow amazonia-[country_origin]-[tier]-[motif_name]-[v]"
+      placeholder: amazonia-pe-hero-kene-geometry-v01
+    validations:
+      required: true
+
+  - type: dropdown
+    id: tier
+    attributes:
+      label: Surface hierarchy tier
+      options:
+        - hero — complex focal graphic
+        - secondary — supporting motif
+        - blender — structural texture, geometric filler, circular design
+    validations:
+      required: true
+
+  - type: dropdown
+    id: country
+    attributes:
+      label: Country of origin / inspiration
+      description: Mandatory regional declaration.
+      options:
+        - ec — Ecuador
+        - pe — Peru
+        - br — Brazil
+        - co — Colombia
+        - bo — Bolivia
+        - ve — Venezuela
+        - gy — Guyana
+        - sr — Suriname
+        - gf — French Guiana
+        - pan — Pan-Amazonian (basin-wide, not attributable to one country)
+    validations:
+      required: true
+
+  - type: textarea
+    id: inspiration
+    attributes:
+      label: Inspiration and references
+      description: Flora, fauna, cultural tradition, field study, public-domain plates. Cite sources.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: custodianship
+    attributes:
+      label: Cultural custodianship status
+      options:
+        - not-applicable — no identifiable living tradition referenced
+        - documented — permission or collaboration documented below
+        - pending — community conversation in progress
+    validations:
+      required: true
+
+  - type: dropdown
+    id: repeat
+    attributes:
+      label: Repeat type
+      options: ["full-drop", "half-drop", "brick / offset (state percentage)"]
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: provenance
+    attributes:
+      label: Provenance certification
+      options:
+        - label: This is 100% original artwork authored by me.
+          required: true
+        - label: No unregulated commercial AI-generated imagery was used, in whole or in part.
+          required: true
+        - label: I can license this artwork under CC BY-SA 4.0.
+          required: true
+        - label: I will deliver 300 DPI, CMYK Coated FOGRA39, seamless output with a 3×3 repeat proof.
+          required: true

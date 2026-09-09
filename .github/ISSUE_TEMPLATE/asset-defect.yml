@@ -1,0 +1,33 @@
+name: 🧵 Asset defect
+description: Report a broken repeat, colour drift, wrong profile or bad export.
+title: "[defect]: "
+labels: ["asset-defect", "needs-triage"]
+body:
+  - type: input
+    id: asset-id
+    attributes:
+      label: Affected asset identifier
+      placeholder: amazonia-br-blnd-vitoria-regia-ripple-v01
+    validations:
+      required: true
+  - type: dropdown
+    id: defect-type
+    attributes:
+      label: Defect type
+      options:
+        - Visible seam / repeat does not tile
+        - Sub-pixel drift on tile boundary
+        - Colour profile missing or incorrect
+        - Resolution below 300 DPI at stated size
+        - Total ink coverage above 300%
+        - Metadata mismatch (meta.json vs. file)
+        - Naming does not follow the nomenclature standard
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+      description: Attach a tiled render, a soft-proof screenshot, or file inspector output.
+    validations:
+      required: true

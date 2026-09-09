@@ -1,0 +1,46 @@
+name: 🌎 Localization request
+description: Add a new language, or fix an existing translation on the showcase site.
+title: "[i18n]: "
+labels: ["i18n", "needs-triage"]
+body:
+  - type: dropdown
+    id: request-type
+    attributes:
+      label: Request type
+      options:
+        - Fix or improve an existing locale
+        - Add a brand-new locale
+    validations:
+      required: true
+  - type: input
+    id: locale-tag
+    attributes:
+      label: BCP 47 language tag
+      placeholder: "pt · es · qu · shp"
+    validations:
+      required: true
+  - type: input
+    id: endonym
+    attributes:
+      label: Endonym (the language's own name, as shown in the toggle)
+      placeholder: "Português · Runasimi"
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Files affected
+      description: "e.g. web/locales/es/ui.json, web/locales/es/pages/about.md"
+    validations:
+      required: true
+  - type: checkboxes
+    id: commitments
+    attributes:
+      label: Contributor commitments
+      options:
+        - label: I will mirror the key structure of web/locales/en/ exactly.
+          required: true
+        - label: I will preserve interpolation placeholders and Markdown structure.
+          required: true
+        - label: I will not translate "pattern" into a garment-construction term (molde / patrón de costura / molde de costura).
+          required: true

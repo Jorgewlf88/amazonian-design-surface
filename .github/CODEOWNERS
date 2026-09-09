@@ -1,0 +1,15 @@
+# Default reviewers
+*                       @MAINTAINER_HANDLE
+
+# Artwork requires design-council review
+/src/collection/        @MAINTAINER_HANDLE
+/src/assets/            @MAINTAINER_HANDLE
+/dist/                  @MAINTAINER_HANDLE
+
+# Localization requires the locale maintainer
+/web/locales/es/        @MAINTAINER_HANDLE
+/web/locales/pt/        @MAINTAINER_HANDLE
+
+# Normative standards require two approvals (enforce via branch protection)
+/docs/production-specs.md   @MAINTAINER_HANDLE
+/docs/nomenclature.md       @MAINTAINER_HANDLE
