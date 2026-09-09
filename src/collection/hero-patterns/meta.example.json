@@ -1,0 +1,33 @@
+{
+  "id": "amazonia-pe-hero-kene-geometry",
+  "title": {
+    "en": "Kené Geometry",
+    "es": "Geometría Kené",
+    "pt": "Geometria Kené"
+  },
+  "description": {
+    "en": "A hero surface design built from the continuous line structure of Shipibo-Konibo kené.",
+    "es": "Un diseño de superficie principal construido a partir de la estructura de línea continua del kené shipibo-konibo.",
+    "pt": "Um desenho de superfície principal construído a partir da estrutura de linha contínua do kené shipibo-konibo."
+  },
+  "tier": "hero",
+  "motif_family": "ritual_geometry",
+  "origin": {
+    "country": "pe",
+    "region": "Ucayali, Peruvian Amazon",
+    "cultural_reference": "Shipibo-Konibo kené visual tradition",
+    "custodian_consent": "pending",
+    "inspiration_notes": "Example record. Replace with a real field-study or collaboration note."
+  },
+  "author": { "name": "Full Name", "github": "@handle", "country": "ec" },
+  "repeat": { "type": "half-drop", "offset_percent": 50, "size_cm": [24.0, 24.0] },
+  "color": {
+    "profile": "Coated FOGRA39",
+    "dominant": ["ochre", "black", "natural"],
+    "colorways": 2,
+    "flat_colors": 5
+  },
+  "tooling": ["Adobe Illustrator 2026", "hand-drawn ink scan"],
+  "license": "CC-BY-SA-4.0",
+  "version": "v01"
+}
