@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  amazonian-design-surface  |  Secondary artboard template
+  2000 x 2000 px at 300 DPI  (16.93 x 16.93 cm)
+
+  HOW TO USE
+  1. Draw your motif inside the white tile. Nothing may sit on the edge:
+     let elements bleed past the boundary, then duplicate them at the exact
+     opposite edge with an identical whole-pixel offset.
+  2. The dashed red centre lines mark the 50% half-drop offset. Use them to
+     check that your motif still reads when the tile is dropped.
+  3. DELETE the whole group id="guides-delete-before-export" before you export.
+  4. Export at 300 DPI. See docs/production-specs.md for colour and format rules.
+-->
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="2000" height="2000" viewBox="0 0 2000 2000"
+     data-tier="secondary" data-dpi="300" data-size-cm="16.93">
+
+  <title>amazonian-design-surface Secondary artboard, 2000x2000 px at 300 DPI</title>
+
+  <!-- The tile itself. Keep this opaque: a transparent seam prints as a halo. -->
+  <rect id="tile-background" x="0" y="0" width="2000" height="2000" fill="#ffffff"/>
+
+  <g id="artwork">
+    <!-- Draw here. Remove this comment when you start. -->
+  </g>
+
+  <g id="guides-delete-before-export" fill="none" stroke-width="3">
+    <rect x="1.5" y="1.5" width="1997" height="1997" stroke="#c8402c"/>
+    <path d="M 1000 0 V 2000 M 0 1000 H 2000" stroke="#c8402c" stroke-dasharray="18 14" opacity="0.75"/>
+    <path d="M 666 0 V 2000 M 1332 0 V 2000 M 0 666 H 2000 M 0 1332 H 2000"
+          stroke="#9aa39c" stroke-dasharray="6 18" opacity="0.6"/>
+    <g stroke="#c8402c" stroke-width="4">
+      <path d="M 0 0 h 90 M 0 0 v 90"/>
+      <path d="M 2000 0 h -90 M 2000 0 v 90"/>
+      <path d="M 0 2000 h 90 M 0 2000 v -90"/>
+      <path d="M 2000 2000 h -90 M 2000 2000 v -90"/>
+    </g>
+    <g fill="#2a3a30" stroke="none" font-family="Helvetica, Arial, sans-serif" opacity="0.85">
+      <text x="110" y="130" font-size="46" font-weight="600">Secondary tile</text>
+      <text x="110" y="188" font-size="34">2000 x 2000 px at 300 DPI (16.93 x 16.93 cm)</text>
+      <text x="110" y="240" font-size="30" fill="#c8402c">Delete this guide group before exporting</text>
+      <text x="110" y="1890" font-size="30">Bleed past the edge and wrap. Never clip on the boundary.</text>
+      <text x="110" y="1938" font-size="30">Dashed red lines mark the 50% half-drop offset.</text>
+    </g>
+  </g>
+</svg>

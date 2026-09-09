@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Repeat checker | amazonian-design-surface</title>
+<style>
+  :root {
+    --canvas: #f7f8f6; --surface: #fff; --ink: #22302a; --muted: #5d6b63;
+    --line: #dde2dd; --canopy: #2f6b4a; --warn: #b8532c;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --canvas:#171d1a; --surface:#1f2723; --ink:#e8eee9; --muted:#9aa8a0;
+            --line:#333d37; --canopy:#7fc79c; --warn:#e08a63; }
+  }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--canvas); color:var(--ink); font:14px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; }
+  .shell { max-width: 1100px; margin:0 auto; padding: 32px 20px 80px; }
+  h1 { font-size: 1.6rem; margin:0 0 6px; letter-spacing:-.01em; }
+  .lede { color:var(--muted); margin:0 0 28px; max-width: 62ch; }
+  .drop {
+    border:2px dashed var(--line); border-radius:12px; background:var(--surface);
+    padding:44px 24px; text-align:center; cursor:pointer; transition:border-color .15s, background .15s;
+  }
+  .drop:hover, .drop.over { border-color:var(--canopy); background:color-mix(in srgb, var(--canopy) 7%, var(--surface)); }
+  .drop strong { display:block; font-size:1.05rem; margin-bottom:4px; }
+  .drop span { color:var(--muted); }
+  input[type=file] { display:none; }
+  .panel { display:none; margin-top:28px; }
+  .panel.on { display:block; }
+  .bar { display:flex; flex-wrap:wrap; gap:18px; align-items:center; padding:14px 16px;
+         background:var(--surface); border:1px solid var(--line); border-radius:10px; margin-bottom:18px; }
+  .bar label { display:flex; align-items:center; gap:8px; font-size:13px; }
+  .stage { border:1px solid var(--line); border-radius:10px; overflow:auto; background:var(--surface); }
+  .tiled { image-rendering:auto; background-repeat:repeat; }
+  .facts { display:grid; gap:10px; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); margin:18px 0 0; }
+  .fact { background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:12px 14px; }
+  .fact dt { font-size:11px; text-transform:uppercase; letter-spacing:.09em; color:var(--muted); margin:0 0 3px; }
+  .fact dd { margin:0; font-size:1.05rem; font-weight:600; }
+  .flag { color:var(--warn); font-weight:600; }
+  .ok { color:var(--canopy); font-weight:600; }
+  .notes { margin-top:26px; padding:16px 18px; background:var(--surface); border:1px solid var(--line); border-radius:10px; }
+  .notes h2 { font-size:.95rem; margin:0 0 8px; }
+  .notes ul { margin:0; padding-left:20px; color:var(--muted); }
+  .notes li { margin:5px 0; }
+  footer { margin-top:34px; color:var(--muted); font-size:12px; }
+  code { background:color-mix(in srgb, var(--canopy) 12%, transparent); padding:1px 5px; border-radius:4px; }
+</style>
+</head>
+<body>
+<div class="shell">
+  <h1>Repeat checker</h1>
+  <p class="lede">
+    Drop your exported tile here to see it repeated. Everything runs in your browser:
+    the file is never uploaded anywhere. Inspect the result at 25% zoom, where hairline
+    seams and unintended diagonal trails become visible.
+  </p>
+
+  <label class="drop" id="drop">
+    <strong>Drop a tile, or click to choose one</strong>
+    <span>PNG, JPEG or WebP. Use the flattened export, not the layered source.</span>
+    <input type="file" id="file" accept="image/png,image/jpeg,image/webp">
+  </label>
+
+  <section class="panel" id="panel">
+    <div class="bar">
+      <label>Grid
+        <select id="grid">
+          <option value="3">3 by 3</option>
+          <option value="5" selected>5 by 5</option>
+          <option value="8">8 by 8</option>
+        </select>
+      </label>
+      <label>Repeat
+        <select id="mode">
+          <option value="full">Full drop</option>
+          <option value="half">Half drop</option>
+          <option value="brick">Brick</option>
+        </select>
+      </label>
+      <label>Zoom
+        <input type="range" id="zoom" min="10" max="100" value="25">
+        <output id="zoomOut">25%</output>
+      </label>
+    </div>
+
+    <div class="stage"><div class="tiled" id="stage"></div></div>
+
+    <dl class="facts" id="facts"></dl>
+
+    <div class="notes">
+      <h2>What to look for</h2>
+      <ul>
+        <li>A pale or dark hairline along a tile edge means a sub-pixel offset or a non-opaque background.</li>
+        <li>Diagonal or vertical trails mean motifs are aligning. Redistribute them rather than adding more.</li>
+        <li>If a full drop shows an obvious grid, an organic motif usually reads better as a half drop.</li>
+        <li>A tile that is not square still tiles, but declare the exact size in <code>meta.json</code>.</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>
+    Part of amazonian-design-surface. Full rules in <code>docs/seamless-repeat-guide.md</code>
+    and <code>docs/production-specs.md</code>.
+  </footer>
+</div>
+
+<script>
+(function () {
+  'use strict';
+  var drop = document.getElementById('drop');
+  var file = document.getElementById('file');
+  var panel = document.getElementById('panel');
+  var stage = document.getElementById('stage');
+  var facts = document.getElementById('facts');
+  var grid = document.getElementById('grid');
+  var mode = document.getElementById('mode');
+  var zoom = document.getElementById('zoom');
+  var zoomOut = document.getElementById('zoomOut');
+  var current = null;
+
+  function fact(term, value, cls) {
+    return '<div class="fact"><dt>' + term + '</dt><dd' +
+           (cls ? ' class="' + cls + '"' : '') + '>' + value + '</dd></div>';
+  }
+
+  function render() {
+    if (!current) return;
+    var scale = Number(zoom.value) / 100;
+    var w = Math.round(current.width * scale);
+    var h = Math.round(current.height * scale);
+    var n = Number(grid.value);
+
+    stage.style.backgroundImage = 'url(' + current.src + ')';
+    stage.style.width = (w * n) + 'px';
+    stage.style.height = (h * n) + 'px';
+    stage.style.backgroundSize = w + 'px ' + h + 'px';
+
+    // A half drop or brick offset is simulated by layering a shifted second copy.
+    if (mode.value === 'half') {
+      stage.style.backgroundImage = 'url(' + current.src + '), url(' + current.src + ')';
+      stage.style.backgroundPosition = '0 0, ' + Math.round(w / 2) + 'px ' + Math.round(h / 2) + 'px';
+      stage.style.backgroundSize = w + 'px ' + h + 'px, ' + w + 'px ' + h + 'px';
+    } else if (mode.value === 'brick') {
+      stage.style.backgroundImage = 'url(' + current.src + '), url(' + current.src + ')';
+      stage.style.backgroundPosition = '0 0, ' + Math.round(w / 2) + 'px 0';
+      stage.style.backgroundSize = w + 'px ' + h + 'px, ' + w + 'px ' + h + 'px';
+    } else {
+      stage.style.backgroundPosition = '0 0';
+    }
+    zoomOut.textContent = zoom.value + '%';
+  }
+
+  function describe(img, name, bytes) {
+    var square = img.width === img.height;
+    var cm = (img.width / 300 * 2.54).toFixed(2);
+    var cmH = (img.height / 300 * 2.54).toFixed(2);
+    var bigEnough = Math.min(img.width, img.height) >= 1200;
+    var evenHalf = img.width % 2 === 0 && img.height % 2 === 0;
+
+    facts.innerHTML =
+      fact('File', name) +
+      fact('Pixels', img.width + ' x ' + img.height) +
+      fact('At 300 DPI', cm + ' x ' + cmH + ' cm') +
+      fact('Square tile', square ? 'Yes' : 'No', square ? 'ok' : 'flag') +
+      fact('Half drop lands on a whole pixel', evenHalf ? 'Yes' : 'No', evenHalf ? 'ok' : 'flag') +
+      fact('Meets minimum size', bigEnough ? 'Yes' : 'Below 1200 px', bigEnough ? 'ok' : 'flag') +
+      fact('Size on disk', (bytes / 1048576).toFixed(2) + ' MB');
+  }
+
+  function load(f) {
+    if (!f || !/^image\//.test(f.type)) return;
+    var reader = new FileReader();
+    reader.onload = function (e) {
+      var img = new Image();
+      img.onload = function () {
+        current = img;
+        panel.classList.add('on');
+        describe(img, f.name, f.size);
+        render();
+      };
+      img.src = e.target.result;
+    };
+    reader.readAsDataURL(f);
+  }
+
+  file.addEventListener('change', function () { load(file.files[0]); });
+  ['dragenter', 'dragover'].forEach(function (ev) {
+    drop.addEventListener(ev, function (e) { e.preventDefault(); drop.classList.add('over'); });
+  });
+  ['dragleave', 'drop'].forEach(function (ev) {
+    drop.addEventListener(ev, function (e) { e.preventDefault(); drop.classList.remove('over'); });
+  });
+  drop.addEventListener('drop', function (e) { load(e.dataTransfer.files[0]); });
+  [grid, mode, zoom].forEach(function (el) { el.addEventListener('input', render); });
+})();
+</script>
+</body>
+</html>

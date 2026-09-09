@@ -1,0 +1,42 @@
+{
+  "id": "amazonia-XX-tier-motif-name",
+  "title": {
+    "en": "English title",
+    "es": "Título en español",
+    "pt": "Título em português"
+  },
+  "description": {
+    "en": "One or two sentences on what the design shows and how it repeats.",
+    "es": "Una o dos frases sobre qué muestra el diseño y cómo se repite.",
+    "pt": "Uma ou duas frases sobre o que o desenho mostra e como se repete."
+  },
+  "tier": "hero",
+  "motif_family": "flora",
+  "origin": {
+    "country": "ec",
+    "region": "Name the province, river or region. Not just the country.",
+    "cultural_reference": null,
+    "custodian_consent": "not-applicable",
+    "inspiration_notes": "How you researched or observed this. Cite field sketches, your own photographs, public-domain plates or ethnographic sources."
+  },
+  "author": {
+    "display_name": "The name you sign with. A pseudonym is as binding as a legal name.",
+    "github": "@your-handle",
+    "country": "ec",
+    "url": "https://your-portfolio.example"
+  },
+  "repeat": {
+    "type": "half-drop",
+    "offset_percent": 50,
+    "size_cm": [25.4, 25.4]
+  },
+  "color": {
+    "profile": "Coated FOGRA39",
+    "dominant": ["green", "ochre"],
+    "colorways": 1,
+    "flat_colors": 5
+  },
+  "tooling": ["Adobe Illustrator", "hand-drawn ink scan"],
+  "license": "CC-BY-SA-4.0",
+  "version": "v01"
+}

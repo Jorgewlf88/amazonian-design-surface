@@ -108,8 +108,15 @@ amazonian-design-surface/
 │   │   └── pt/
 │   └── dist/                           # Build output: generated, git-ignored
 │
+├── templates/                      # Artist starting points
+│   ├── artboards/                      # 300 DPI SVG artboards, one per tier
+│   ├── repeat-checker.html             # Local, offline seamless-repeat preview
+│   └── meta.template.json              # Blank metadata record
+│
 ├── scripts/                        # Maintainer tooling
+│   ├── new-design.mjs                  # Scaffolds a new design folder
 │   ├── validate-naming.mjs             # Nomenclature + mandatory meta.json
+│   ├── validate-metadata.mjs           # meta.json against the asset schema
 │   ├── validate-locales.mjs            # Locale key parity and placeholder integrity
 │   ├── check-terminology.sh            # Rejects garment-construction vocabulary
 │   ├── build-catalog.mjs               # meta.json to dist/catalog.json plus credit lines
@@ -301,11 +308,22 @@ cd amazonian-design-surface
 npm install
 npm run dev            # http://localhost:4321/amazonian-design-surface/
 
-# 3. Validate your submission before opening a pull request
-npm run validate       # naming + locale parity + terminology gate
+# 3. Start a new design: scaffolds the folder, metadata and artboard
+npm run new:design
+
+# 4. Validate your submission before opening a pull request
+npm run validate       # naming + metadata + locale parity + terminology gate
 ```
 
 The validators run from any directory and are the same checks CI enforces.
+
+### Contributing a design
+
+Artists do not have to transcribe the naming standard by hand. `npm run new:design` asks a few
+questions and writes a valid skeleton, and [`templates/`](templates/) holds 300 DPI artboards for
+each tier plus an offline [repeat checker](templates/repeat-checker.html) that tiles your export
+in the browser so you can catch a seam before you submit. Start at
+[`templates/README.md`](templates/README.md).
 
 ---
 

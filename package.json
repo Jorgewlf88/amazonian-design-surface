@@ -6,6 +6,7 @@
   "license": "GPL-3.0-only",
   "type": "module",
   "scripts": {
+    "new:design": "node scripts/new-design.mjs",
     "build": "npm run build:catalog && npm run build:authors && npm run build:site && npm run build:css",
     "build:catalog": "node scripts/build-catalog.mjs",
     "build:authors": "node scripts/build-authors.mjs",
@@ -13,8 +14,9 @@
     "build:css": "tailwindcss -i web/src/styles/main.css -o web/dist/assets/main.css --minify",
     "dev": "npm run build && node scripts/serve.mjs",
     "watch:css": "tailwindcss -i web/src/styles/main.css -o web/dist/assets/main.css --watch",
-    "validate": "npm run validate:naming && npm run validate:locales && npm run validate:terms",
+    "validate": "npm run validate:naming && npm run validate:metadata && npm run validate:locales && npm run validate:terms",
     "validate:naming": "node scripts/validate-naming.mjs",
+    "validate:metadata": "node scripts/validate-metadata.mjs",
     "validate:locales": "node scripts/validate-locales.mjs",
     "validate:terms": "bash scripts/check-terminology.sh"
   },

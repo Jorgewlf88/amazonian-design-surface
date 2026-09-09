@@ -24,6 +24,13 @@ All notable changes to this archive are documented here. The format follows
   over Astro's 203-package tree so an archive meant to last decades is not tied to a yearly major
   release cycle. Recorded as ADR 0002.
 
+- Artist onboarding: `npm run new:design` scaffolds a design folder, a prefilled `meta.json` and
+  the matching 300 DPI artboard, refusing input that would break the naming standard.
+- `templates/` with SVG artboards per tier, a blank metadata record, and an offline repeat checker
+  that tiles an exported design in the browser without uploading it anywhere.
+- `validate-metadata.mjs`, a dependency-free validator that checks every `meta.json` against the
+  asset schema, rejects unknown values in enumerated fields and catches leftover `TODO` text.
+
 ### Fixed
 - `deploy-pages` no longer fails on a missing `web/package-lock.json`; the build now runs from a single
   root manifest.

@@ -17,6 +17,8 @@ jobs:
           node-version: "20"
       - name: Validate file naming against the nomenclature standard
         run: node scripts/validate-naming.mjs
+      - name: Validate every meta.json against the asset schema
+        run: node scripts/validate-metadata.mjs
 
   credits:
     name: Attribution and credit roster

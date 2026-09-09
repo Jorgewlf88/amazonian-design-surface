@@ -146,11 +146,23 @@ items; a human maintainer checks the rest.
 - [ ] `*-repeat-proof.png` included, showing a 3x3 tiled render.
 - [ ] `dist/` export at **300 DPI minimum** at final print size: never upscaled.
 - [ ] TIFF master is **CMYK, Coated FOGRA39, embedded profile, flattened, LZW**, 300 % TAC maximum.
-- [ ] `meta.json` complete, including the regional origin declaration and `tooling`.
+- [ ] `meta.json` complete, including the regional origin declaration and `tooling`, with no
+      `TODO` left behind. Verify with `npm run validate:metadata`.
 - [ ] Binary files tracked through **Git LFS** (`git lfs track` is preconfigured in `.gitattributes`).
 - [ ] No prohibited terminology anywhere in the diff.
 
 ### Submission workflow
+
+Start with the scaffolder rather than creating folders by hand:
+
+```bash
+npm run new:design
+```
+
+It builds the design folder, a prefilled `meta.json` and the correct 300 DPI artboard, and it
+refuses any input that would break the naming standard. The artboards, an offline repeat checker
+and a blank metadata record all live in [`templates/`](templates/), documented in
+[`templates/README.md`](templates/README.md).
 
 1. **Open a `pattern-submission` issue first** for hero designs, or anything larger than a single
    blender. This avoids duplicated motifs and lets maintainers flag custodianship questions early.
