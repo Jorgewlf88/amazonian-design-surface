@@ -35,6 +35,10 @@ const PREVIEW_DIR = 'dist/web-preview';
 const BASE = (process.env.BASE_PATH ?? '/amazonian-design-surface').replace(/\/$/, '');
 const REPO_URL = 'https://github.com/Jorgewlf88/amazonian-design-surface';
 
+/** Search engines require fully-qualified URLs in hreflang and canonical. */
+const ORIGIN = (process.env.SITE_ORIGIN ?? 'https://jorgewlf88.github.io').replace(/\/$/, '');
+const absolute = (path) => `${ORIGIN}${path}`;
+
 // ---------------------------------------------------------------------------
 // Helpers
 // ---------------------------------------------------------------------------
@@ -71,7 +75,15 @@ const parseFrontMatter = (raw) => {
   return { data, body: raw.slice(match[0].length) };
 };
 
-const url = (...segments) => `${BASE}/${segments.filter(Boolean).join('/')}`.replace(/\/+$/, '/') || '/';
+/** Asset path: no trailing slash. */
+const url = (...segments) => `${BASE}/${segments.filter(Boolean).join('/')}`;
+
+/**
+ * Page path: always ends in a slash, matching what GitHub Pages serves for a
+ * directory. Without it every internal link takes a 301 and the canonical URL
+ * disagrees with the served one.
+ */
+const page = (...segments) => `${BASE}/${[...segments].filter(Boolean).join('/')}/`;
 
 /** dist/web-preview/pe/x.webp -> previews/pe/x.webp, the path the built site serves. */
 const previewPath = (asset) => (asset.files?.preview ?? '').replace(/^dist\/web-preview\//, 'previews/');
@@ -103,7 +115,7 @@ const renderNav = (ui, locale, activeKey) =>
   ROUTES.filter((route) => route.navKey)
     .map((route) => {
       const active = route.key === activeKey;
-      return `<a href="${url(locale, route.segment)}" class="nav-link${active ? ' nav-link-active' : ''}"${
+      return `<a href="${page(locale, route.segment)}" class="nav-link${active ? ' nav-link-active' : ''}"${
         active ? ' aria-current="page"' : ''
       }>${escape(translate(ui, route.navKey))}</a>`;
     })
@@ -114,7 +126,7 @@ const renderLanguageToggle = (ui, locale, routeKey) => {
   const options = locales
     .map((tag) => {
       const current = tag === locale;
-      return `<a href="${url(tag, segment)}" lang="${tag}" hreflang="${tag}" class="lang-option${
+      return `<a href="${page(tag, segment)}" lang="${tag}" hreflang="${tag}" class="lang-option${
         current ? ' lang-option-active' : ''
       }"${current ? ' aria-current="true"' : ''}>${escape(localeLabels[tag])}</a>`;
     })
@@ -126,11 +138,14 @@ const renderLanguageToggle = (ui, locale, routeKey) => {
       </nav>`;
 };
 
-const renderAlternates = (routeKey) => {
+const renderAlternates = (locale, routeKey) => {
   const segment = ROUTES.find((route) => route.key === routeKey)?.segment ?? '';
   return [
-    ...locales.map((tag) => `<link rel="alternate" hreflang="${tag}" href="${url(tag, segment)}">`),
-    `<link rel="alternate" hreflang="x-default" href="${url(defaultLocale, segment)}">`,
+    `<link rel="canonical" href="${absolute(page(locale, segment))}">`,
+    ...locales.map(
+      (tag) => `<link rel="alternate" hreflang="${tag}" href="${absolute(page(tag, segment))}">`,
+    ),
+    `<link rel="alternate" hreflang="x-default" href="${absolute(page(defaultLocale, segment))}">`,
   ].join('\n    ');
 };
 
@@ -144,14 +159,16 @@ const layout = ({ ui, locale, routeKey, title, description, body }) => `<!doctyp
     <meta property="og:title" content="${escape(title)}">
     <meta property="og:description" content="${escape(description)}">
     <meta property="og:type" content="website">
-    ${renderAlternates(routeKey)}
+    <meta property="og:url" content="${absolute(page(locale, ROUTES.find((r) => r.key === routeKey)?.segment ?? ''))}">
+    <meta property="og:locale" content="${locale}">
+    ${renderAlternates(locale, routeKey)}
     <link rel="stylesheet" href="${url('assets/main.css')}">
   </head>
   <body class="bg-canvas text-ink antialiased">
     <a href="#main" class="skip-link">${escape(translate(ui, 'actions.back_to_collection'))}</a>
     <header class="site-header">
       <div class="shell flex flex-wrap items-center gap-x-8 gap-y-3 py-4">
-        <a href="${url(locale)}" class="brand">
+        <a href="${page(locale)}" class="brand">
           <span class="brand-mark" aria-hidden="true"></span>
           <span class="brand-name">${escape(translate(ui, 'site.name'))}</span>
         </a>
@@ -209,10 +226,10 @@ const renderHome = ({ ui, collection, locale, assets }) => {
           <p class="hero-eyebrow">${escape(translate(ui, 'site.name'))}</p>
           <h1 class="hero-title">${escape(translate(ui, 'site.tagline'))}</h1>
           <div class="hero-actions">
-            <a href="${url(locale, 'collection')}" class="btn-primary">${escape(
+            <a href="${page(locale, 'collection')}" class="btn-primary">${escape(
               translate(ui, 'nav.collection'),
             )}</a>
-            <a href="${url(locale, 'how-to-use')}" class="btn-ghost">${escape(
+            <a href="${page(locale, 'how-to-use')}" class="btn-ghost">${escape(
               translate(ui, 'nav.how_to_use'),
             )}</a>
           </div>
@@ -381,8 +398,8 @@ const redirect = `<!doctype html>
   <head>
     <meta charset="utf-8">
     <title>amazonian-design-surface</title>
-    <link rel="canonical" href="${url(defaultLocale)}">
-    <meta http-equiv="refresh" content="0; url=${url(defaultLocale)}">
+    <link rel="canonical" href="${absolute(page(defaultLocale))}">
+    <meta http-equiv="refresh" content="0; url=${page(defaultLocale)}">
     <script>
       // Strategy: stored preference, then Accept-Language, then default. See i18n.config.js.
       (function () {
@@ -402,7 +419,7 @@ const redirect = `<!doctype html>
     </script>
   </head>
   <body>
-    <p><a href="${url(defaultLocale)}">amazonian-design-surface</a></p>
+    <p><a href="${page(defaultLocale)}">amazonian-design-surface</a></p>
   </body>
 </html>
 `;
